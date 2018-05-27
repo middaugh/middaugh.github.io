@@ -1,0 +1,19 @@
+body{
+	background-color: #FFFFFF;
+	color: #000000
+	}
+
+h1{
+	font-family: 'Playfair Display', serif;
+	font-size: 91pt;
+	text-shadow: 10px 10px #bc8b27;
+}
+
+h1:hover {
+    text-shadow: 10px 10px #1b8db7;
+}
+
+.wrapper{
+    padding-left: 45px;
+
+}
