@@ -7,8 +7,8 @@ h1{
 	font-family: 'Playfair Display', serif;
 	font-size: 91pt;
 	text-shadow: 10px 10px #bc8b27;
-    -webkit-transition: color 2s; /* For Safari 3.0 to 6.0 */
-    transition: text-shadow 2s; /* For modern browsers */
+    -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
+    transition: text-shadow 1s; /* For modern browsers */
 }
 
 h1:hover {
