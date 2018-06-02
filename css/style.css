@@ -1,18 +1,22 @@
 body{
 	background-color: #FFFFFF;
-	color: #000000
+	color: #000000;
+    font-family: 'Muli', sans-serif;
 	}
 
 h1{
-	font-family: 'Playfair Display', serif;
-	font-size: 91pt;
-	text-shadow: 10px 10px #bc8b27;
+	/*font-family: 'Playfair Display', serif;*/
+	font-size: 65pt;
+	/*text-shadow: 10px 10px #bc8b27;*/
+    text-shadow: 5px 5px #becec6;
     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
 }
 
 h1:hover {
-    text-shadow: 10px 10px #1b8db7;
+    /*text-shadow: 10px 10px #1b8db7;*/
+    text-shadow: 6px 6px #73af93;
+    /*/#becec6*/
 }
 
 .wrapper{
