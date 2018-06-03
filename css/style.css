@@ -2,15 +2,18 @@ body{
 	background-color: #FFFFFF;
 	color: #000000;
     font-family: 'Muli', sans-serif;
+    padding: 10px;
 	}
 
 h1{
 	/*font-family: 'Playfair Display', serif;*/
-	font-size: 65pt;
+	font-size: 5em;
 	/*text-shadow: 10px 10px #bc8b27;*/
     text-shadow: 5px 5px #becec6;
     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
+    margin-bottom: 15px;
+    font-weight: bold;
 }
 
 h1:hover {
@@ -19,7 +22,14 @@ h1:hover {
     /*/#becec6*/
 }
 
-.wrapper{
-    padding-left: 45px;
+.container-fluid{
+    margin-left: 10%;
+    margin-top: 5%;
 
+
+}
+
+.contact{
+    margin-bottom: 5px;
+    color: #BBB;
 }
