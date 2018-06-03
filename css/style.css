@@ -13,7 +13,7 @@ h1{
     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
     margin-bottom: 15px;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 h1:hover {
@@ -25,11 +25,13 @@ h1:hover {
 .container-fluid{
     margin-left: 10%;
     margin-top: 5%;
-
-
 }
 
 .contact{
     margin-bottom: 5px;
     color: #BBB;
+}
+
+.education, .experience{
+    font-weight: 500;
 }
