@@ -2,11 +2,16 @@ body {
   padding: 70px 0px;
   font-family: 'Open Sans', sans-serif;
   font-style: light;
-
   text-align: left;
   color: #000;
   background-color: #FFFFFF;
 }
+
+svg{
+    font-family: 'Open Sans', sans-serif;
+    font-stle: light;
+}
+
 
 /*
 .outterContainer{
@@ -21,12 +26,11 @@ body {
 
 .outterContainer{
 
-    background-color: white;
+    background-color: #FFFFFF;
     padding-left: 40px;
     padding-right: 40px;
-    height 100%vh;
+    height: 100%vh;
 }
-
 
 .starter-template {
   padding: 40px 0px;
@@ -37,14 +41,14 @@ body {
 h1, h2, h3, h4, h5, h6{
     font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
     font-weight: bold;
-    color: #4E598C;
+    color: #73af93;
 
 }
 
 .navbar, .navbar-inverse{
-    background-color: #a4b0c4; /*bright yellow */
+    background-color: #FFFFFF;
     border: 0px;
-    color: #000;
+    color: #73af93; /*Green to match */
 }
 
 a:hover{
