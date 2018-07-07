@@ -2,12 +2,13 @@ body {
   padding: 70px 0px;
   font-family: 'Open Sans', sans-serif;
   font-style: light;
-  
+
   text-align: left;
   color: #000;
-  background-color: #111111;
+  background-color: #FFFFFF;
 }
 
+/*
 .outterContainer{
 
   background-color: gold;
@@ -15,8 +16,17 @@ body {
   padding-left: 40px;
   padding-right: 40px;
   height: 100%vh;
-
 }
+*/
+
+.outterContainer{
+
+    background-color: white;
+    padding-left: 40px;
+    padding-right: 40px;
+    height 100%vh;
+}
+
 
 .starter-template {
   padding: 40px 0px;
@@ -25,16 +35,16 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6{
-    font-family: 'Open Sans', Baskerville, Georgia, sans-serif;
+    font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
     font-weight: bold;
     color: #4E598C;
-    
+
 }
 
 .navbar, .navbar-inverse{
-    background-color: #D2FF28; /*bright yellow */
+    background-color: #a4b0c4; /*bright yellow */
     border: 0px;
-    color: #4E598C;
+    color: #000;
 }
 
 a:hover{
@@ -106,7 +116,7 @@ height: 250px;
 }
 
 /* Add Animation - Zoom in the Modal */
-.modal-content, #caption { 
+.modal-content, #caption {
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
@@ -114,12 +124,12 @@ height: 250px;
 }
 
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
+    from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
 }
 
 @keyframes zoom {
-    from {transform:scale(0)} 
+    from {transform:scale(0)}
     to {transform:scale(1)}
 }
 
