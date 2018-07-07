@@ -4,10 +4,21 @@ body{
     font-family: 'Muli', sans-serif;
     padding: 10px;
 	}
+a{
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+a:visited {
+    text-decoration: none;
+}
 
 h1{
-	/*font-family: 'Playfair Display', serif;*/
-	font-size: 5em;
+	/*font-family: 'Merriweather', serif;*/
+	font-size: 4.5em;
 	/*text-shadow: 10px 10px #bc8b27;*/
     text-shadow: 5px 5px #becec6;
     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */

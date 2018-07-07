@@ -1,0 +1,166 @@
+body {
+  padding: 70px 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: light;
+  
+  text-align: left;
+  color: #000;
+  background-color: #111111;
+}
+
+.outterContainer{
+
+  background-color: gold;
+  background: linear-gradient(to bottom right, #fff 0%, #fff 50%, #F4F4F4 50%, #F4F4F4 100%);
+  padding-left: 40px;
+  padding-right: 40px;
+  height: 100%vh;
+
+}
+
+.starter-template {
+  padding: 40px 0px;
+  text-align: right;
+
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Open Sans', Baskerville, Georgia, sans-serif;
+    font-weight: bold;
+    color: #4E598C;
+    
+}
+
+.navbar, .navbar-inverse{
+    background-color: #D2FF28; /*bright yellow */
+    border: 0px;
+    color: #4E598C;
+}
+
+a:hover{
+  color: #C0BCB5; /*Light gray */
+
+}
+
+.img-circle{
+text-align: center;
+margin-left: auto;
+margin-right: auto;}
+
+.pdf{
+  margin: 10px auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+
+
+
+/* Style the Image Used to Trigger the Modal */
+#myImg0, #myImg1, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6, #myImg7 {
+
+    cursor: pointer;
+    transition: 1s;
+}
+
+#myImg0:hover, #myImg1:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover, #myImg5:hover, #myImg6:hover, #myImg7:hover {opacity: 0.7;
+width: 250px;
+height: 250px;
+
+}
+/* Modal Code from W3C Schools*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 55px;
+    right: 35px;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.img-circle{
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.copyright{
+
+  font-size: .8em;
+  color: #C0BCB5;
+  text-align: center;
+  margin: 20px auto;
+  width: 100%;
+
+}
