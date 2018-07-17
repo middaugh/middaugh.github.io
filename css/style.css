@@ -1,8 +1,10 @@
 body{
 	background-color: #FFFFFF;
-	color: #000000;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Karla', monospace;
+    font-weight:100;
     padding: 10px;
+
+
 	}
 a{
     text-decoration: none;
@@ -10,37 +12,49 @@ a{
 
 a:link {
     text-decoration: none;
-    color: black;
+    color: #e0c970;
+
 }
+
+
 a:visited {
     text-decoration: none;
 }
 
 h1{
-	/*font-family: 'Merriweather', serif;*/
-	font-size: 4.5em;
-	/*text-shadow: 10px 10px #bc8b27;*/
-    text-shadow: 5px 5px #becec6;
+	font-family: 'Karla',sans-serif;
+	font-size: 11vmin;
+    font-weight:700;
+    line-height: 80%;
+    /*text-shadow: .4vmin .4vmin #444444;*/
     -webkit-transition: color 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: 900;
+    color: #73af93; /*pretty green blue */
+    color: #e0c970;
 }
 
 h1:hover {
     /*text-shadow: 10px 10px #1b8db7;*/
-    text-shadow: 6px 6px #73af93;
-    /*/#becec6*/
+    text-shadow: .5vmin .5vmin #95cfb5; /*light green turquoise */
+    color: #629e82;
 }
 
 .container-fluid{
-    margin-left: 10%;
-    margin-top: 5%;
+    margin: 5% 10%;
 }
 
 .contact{
     margin-bottom: 5px;
-    color: #BBB;
+    opacity:.7;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+
+}
+
+.contact:hover{
+    opacity: 1;
 }
 
 .education, .experience{
