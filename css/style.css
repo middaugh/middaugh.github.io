@@ -2,6 +2,7 @@ body{
 	background-color: #FFFFFF;
     font-family: 'Karla', monospace;
     font-weight:100;
+    font-size: 13px;
 }
 
 h1 a{
@@ -25,7 +26,7 @@ h1 a:visited {
 
 h1{
 	font-family: 'Karla',sans-serif;
-	font-size: 11vmin;
+	font-size: 8vmin;
     font-weight:700;
     line-height: 80%;
     -webkit-transition: text-shadow 1s; /* For Safari 3.0 to 6.0 */
