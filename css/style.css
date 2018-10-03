@@ -2,7 +2,7 @@ body{
 	background-color: #FFFFFF;
     font-family: 'Lato', monospace;
     font-weight:100;
-    font-size: 2vmin;
+    font-size: 16px;
     color: #000000;
     padding-bottom: 0px;
 
@@ -10,7 +10,7 @@ body{
 
 .container-fluid{
     background-color: #FFFFFF;
-    margin: 15vh 20vw;
+    margin: 15vh 15vw;
 
 }
 
