@@ -3,15 +3,17 @@ body{
     font-family: 'Lato', monospace;
     font-weight:100;
     font-size: 2vmin;
+    color: #000000;
+    padding-bottom: 0px;
+
 }
 
+.container-fluid{
+    background-color: #FFFFFF;
+    margin: 15vh 20vw;
 
-
-h1 a{
-    text-decoration: none;
-    color: #e0c970;
-    /*text-shadow: .6vmin .6vmin #95cfb5;*/
 }
+
 
 h1 a:link {
     text-decoration: none;
@@ -33,27 +35,23 @@ h1{
     line-height: 80%;
     -webkit-transition: text-shadow 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
-    /*text-shadow: .5vmin .5vmin #95cfb5;*/
     margin-bottom: 3vh;
 
-    color: #000000; /*yellow is the color of my true loves hair in the morning*/
+    color: #000000;
 }
 
 h1:hover {
-    /*text-shadow: 10px 10px #1b8db7;*/
+    text-shadow: 10px 10px #DDDDDD;
     /*text-shadow: .7vmin .7vmin #3e71a8; /*light green turquoise */
     color: #629e82;
 }
 
-.container-fluid{
-    margin: 11vh 15vw;
-}
+
 
 .contact{
     opacity: .7;
     -webkit-transition: opacity 1s;
     transition: opacity 1s;
-
     text-align: right;
 
 
