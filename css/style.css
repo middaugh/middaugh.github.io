@@ -14,18 +14,19 @@ body{
 
 }
 
+.main{
+    padding-left: 15px;
+}
 
-h1 a:link {
+a:link {
     text-decoration: none;
     color: #000000;
-    /*text-shadow: .6vmin .6vmin #95cfb5;*/
 }
 
 
-h1 a:visited {
+a:visited {
     text-decoration: none;
     color: #000000;
-    /*text-shadow: .6vmin .6vmin #95cfb5;*/
 }
 
 h1{
