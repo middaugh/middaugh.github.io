@@ -10,22 +10,15 @@ body{
 
 .container-fluid{
     background-color: #FFFFFF;
-    margin: 15vh auto;
+    margin: 15vh 15vw;
 
 }
 
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}
-
-/*
 .main{
     padding-left: 15px;
     margin-left: 15px;
     min-width: 360px;
 }
-*/
 
 a:link {
     text-decoration: none;
