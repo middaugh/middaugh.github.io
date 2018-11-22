@@ -11,19 +11,21 @@ body{
 .container-fluid{
     background-color: #FFFFFF;
     margin: 15vh 10vw;
+    min-width: 300px;
 
 }
 
 
 .row{
     margin-bottom: 10px;
-    
+
 }
 
 .main{
     padding-left: 15px;
-    margin-left: 15px;
-    min-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 a:link {
