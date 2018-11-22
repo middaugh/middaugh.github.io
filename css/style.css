@@ -11,8 +11,7 @@ body{
 .container-fluid{
     background-color: #FFFFFF;
     margin: 15vh auto;
-    min-width: 300px;
-    max-width: 800px;
+    max-width: 700px;
 
 }
 
@@ -77,16 +76,7 @@ h1:hover {
     font-weight: 500;
 }
 
-.footer{
-    position:static;
-    bottom: 0;
-    left:0;
-    margin: 0px;
-    width: 100vmax;
-    height: 15vmax;
-    background-color: #95cfb5;
-    text-align: center;
-}
+
 
 /*About Me Page */
 
