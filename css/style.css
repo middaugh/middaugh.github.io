@@ -10,8 +10,9 @@ body{
 
 .container-fluid{
     background-color: #FFFFFF;
-    margin: 15vh 10vw;
+    margin: 15vh auto;
     min-width: 300px;
+    max-width: 600px;
 
 }
 
