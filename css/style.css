@@ -15,7 +15,9 @@ body{
 
 }
 
-
+.nav{
+    float: right;
+}
 
 .example{
     padding: 3px;
