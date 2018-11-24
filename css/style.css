@@ -8,6 +8,8 @@ body{
 
 }
 
+
+
 .container-fluid{
     background-color: #FFFFFF;
     margin: 15vh auto;
@@ -15,8 +17,6 @@ body{
     padding-top: 20px;
 
 }
-
-
 
 .example{
     padding: 3px;
@@ -152,3 +152,7 @@ h1:hover {
 .align-center{
     text-align: center;
 }
+
+#nav{
+    color: #FAFAFA;
+} 
