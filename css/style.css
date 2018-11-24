@@ -24,6 +24,11 @@ body{
     margin-bottom: 20px;
 }
 
+.example img{
+    margin: auto;
+    display: block;
+}
+
 .underlined{
     text-decoration-style: underlined;
 }
