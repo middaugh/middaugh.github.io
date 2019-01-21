@@ -42,14 +42,13 @@ body{
 }
 
 a:link {
-    text-decoration: none;
+
     color: #000000;
 }
 
 
 a:visited {
-    text-decoration: none;
-    color: #000000;
+    color: #AAAAAA;
 }
 
 h1{
@@ -60,8 +59,11 @@ h1{
     -webkit-transition: text-shadow 1s; /* For Safari 3.0 to 6.0 */
     transition: text-shadow 1s; /* For modern browsers */
     margin-bottom: 3vh;
-
     color: #000000;
+}
+.name{
+    text-decoration: none !important;
+    color: #000000 !important;
 }
 
 h1:hover {
@@ -155,5 +157,5 @@ h1:hover {
 
 #nav{
     color: #FAFAFA;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
