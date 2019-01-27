@@ -43,12 +43,14 @@ body{
 
 a:link {
 
-    color: #000000;
+    color: #AAAAAA;
 }
-
-
 a:visited {
     color: #AAAAAA;
+}
+
+h1>a:link {
+    color: #000000;
 }
 
 h1{
