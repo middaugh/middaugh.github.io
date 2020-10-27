@@ -156,8 +156,15 @@ h1:hover {
 .align-center{
     text-align: center;
 }
+.selected{
+    font-style: italic; 
+}
 
 #nav{
     color: #FAFAFA;
     margin-bottom: 10px;
+}
+
+.skills{
+    margin-bottom: 50px;
 }
