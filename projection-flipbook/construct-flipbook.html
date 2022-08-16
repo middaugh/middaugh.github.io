@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3-ease@3"></script>
-    <script src="projections.js"></script> <!-- Map Projection Rotation -->
+    <script src="scripts/projections.js"></script> <!-- Map Projection Rotation -->
     <script src="scripts/base-flipbook-functions.js"></script>
     <script src="scripts/dot-density.js"></script>
     <script src="scripts/choropleth.js"></script>
@@ -90,7 +90,7 @@
 
         if (error) throw error;
 
-        // Define Map Boundaries 
+        // Define Map Boundaries
         let countries = topojson.feature(countries110m, countries110m.objects.countries);
         countries.features = countries.features.filter(feature => feature.properties.name !== 'Fiji'); // Remove because of problems with Clipping
         let features = countries.features;
