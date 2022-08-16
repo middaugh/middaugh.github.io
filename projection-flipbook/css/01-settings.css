@@ -1,0 +1,41 @@
+/****** Alter as Need Be *********/
+:root {
+    --side-space: 15vmin;
+    --side-space--mobile: 5vmin;
+    --main-font:Georgia, "Roboto Thin", "Segoe UI", Helvetica, sans-serif;
+    --title-font: Georgia, "Courier New", monotype;
+    --header-font: Georgia, "Courier New", "Segoe UI", "Roboto", "Roboto Mono", sans-serif;
+    --font-size:  1em; 
+    --line-height: 1.2;
+    --bgcolor: #f8f8f8;
+    --footer-bgcolor: #13262F;
+    --secondary-color: #878e88;
+    --dark-color: #18314f;
+    --primary-color:#384e77;
+    --light-color: white; 
+    --accent-color: #878e88; 
+    --sticky-size-large-height: 80vh; 
+    --sticky-size-small-height: 30vh; 
+
+  }
+
+
+  .primary-color{
+    color: var(--primary-color); 
+}
+
+.secondary-color{
+    color: var(--secondary-color);
+}
+
+.light-color{
+    color: var(--light-color);
+}
+
+.dark-color{
+    color: var(--dark-color);
+}
+
+.accent-color{
+    color: var(--accent-color); 
+}

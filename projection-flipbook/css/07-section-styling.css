@@ -1,0 +1,121 @@
+@import '01-settings.css'; 
+
+.background-iframe{ 
+    position: absolute; 
+    float: left; 
+    clear: both;
+    width: 100%;
+    height: 350px; 
+    z-index: 0; 
+    left: no-repeat; 
+}
+
+.break {
+    height: 300px; 
+    padding: 0;
+    max-width: 20rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.break p{
+    text-align: center; 
+    position: relative;
+}
+
+.wide {
+    max-width: 60rem; 
+}
+
+
+  
+  #intro {
+    max-width: 40rem;
+    margin: 1rem auto;
+    margin-top: 40vh; 
+    margin-bottom: 105vh;
+    text-align: center;
+  }
+  
+  .intro__hed {
+    margin: 2rem auto 0.5rem auto;
+  }
+  
+  #outro {
+    height: 640px;
+  }
+  
+  @media (min-width: 840px) {
+    .nav__examples {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
+  }
+  
+  
+  /*  Block Quotes */
+  
+  blockquote{
+    background-color: transparent;
+    margin: 0 0 20px;
+    position: relative;
+    font-size: 2rem;
+    font-family: var(--header-font); 
+    display: block; 
+    color: var(--primary-color); 
+    font-style: italic; 
+  }
+  
+  /* blockquote::before{
+    content: "\201C"; 
+    
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #999;
+    
+
+    position: relative;
+    left: 0px;
+    top:10px;
+  }
+  */
+
+
+#news-quotes{
+  padding-bottom: 100px; 
+  background-image: linear-gradient(white, var(--light-color));
+}
+.quote-block{
+    position: relative;
+    display: block; 
+    max-width: 575px; 
+    min-height: 200px;
+
+}
+
+figcaption{
+  float: right; 
+  margin-bottom: 100px; 
+  white-space: no-wrap;
+  color: var(--secondary-color); 
+}
+  
+
+cite{
+  white-space: no-wrap;
+}
+
+  /* stying modifications */
+  
+
+
+.break.after{
+  background-image: linear-gradient( var(--dark-color, white));
+}
+
+#credits{
+  padding: 100px; 
+}

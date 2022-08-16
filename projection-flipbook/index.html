@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>The Projection Flipbook: Visualizing the Map Projection Distortion in Context</title>
+  <meta name="description" content="Beyond the Peel: Visualizing the Map Projection Distortion in Context" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./css/01-settings.css" />
+  <link rel="stylesheet" href="./css/02-normalize.css" />
+  <link rel="stylesheet" href="./css/03-reset.css" />
+  <link rel="stylesheet" href="./css/04-general.css" />
+  <link rel="stylesheet" href="./css/07-section-styling.css" />
+  <link rel="stylesheet" href="./css/08-scrolly.css" />
+  <link rel="stylesheet" href="./css/08-scrolly-side.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<!-- <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script> -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-geo@1"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://unpkg.com/d3-geo-polygon@1"></script>
+<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-ease@3"></script>
+<script src="scripts/base-flipbook-functions.js"></script>
+<script src="scripts/dot-density.js"></script>
+<script src="scripts/choropleth.js"></script>
+<body>
+
+
+  <!-- Will it work?-->
+  <main>
+
+    <!-- This is where my nav could go if I have any. 
+      <nav></nav>
+      -->
+
+
+
+
+    <section id="intro">
+      <h1 class="intro__hed primary-color">The Projection Flipbook</h1>
+      <p class="intro__dek light-color">
+
+        The truth is not distorted here, but rather a distortion is used to get at truth.
+      <figcaption><cite style="color: white;">&mdash;Flannery O'Connor</cite></figcaption>
+
+      </p>
+    </section>
+
+
+    <section id="disorted" class="secondary-color">
+    </section>
+
+    <!-- BRING BACK IN THE NEWS QUOTES SECTION HERE-->
+
+    <script>
+      // modified from http://jsfiddle.net/tiffhockin/fesvq8u0/
+
+      // get window width and height
+      var winWidth = window.innerWidth;
+      var winHeight = window.innerHeight;
+
+      let margin = 100;
+      // set width and height of containing element to full screen minus margin
+      var containingDiv = document.getElementById('news-quotes');
+
+
+      // collect all the divs
+      var divs = document.getElementsByClassName('quote-block');
+
+      for (var i = 0; i < divs.length; i++) {
+
+        // shortcut! the current div in the list
+        var thisDiv = divs[i];
+
+        randomLeft = getRandomNumber(0, winWidth - 600);
+        thisDiv.style.left = randomLeft + "px";
+
+      }
+
+      // function that returns a random number between a min and max
+      function getRandomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+    </script>
+
+
+
+    <!-- 
+
+        ADD IN THE MAP ONCE WE HAVE SCROLLY WORKING
+              <section id="map">
+        <iframe width="100%" height="787" frameborder="0"
+  src="https://observablehq.com/embed/0040896bb6b3e2d0?cells=map"></iframe>
+      </section>
+
+      -->
+
+
+    <!-- Create Interactively -- Use the D3 to have populate the side titles-->
+    <!-- Implement the d3 in such a way so that it grabs the data-step from div, and based on that creates does which iteration of the chart. datastep 1 would be Mercator-Robinson-Peters, etc. and then 3 would be Robsinson-Mercator-Peters.
+      Could also do by [datastep + 1] /  %3, %2, etch to determine which order;  -->
+    <section id="scrolly-side">
+      <div id="projectionFlipbook" class="sticky-thing map-monster sticky-size-large">
+        <!-- Create a div where the graph will take place 
+                      <canvas id="top" style="display:block;margin:5px;"></canvas>
+            <canvas id="middle" style="display:block;margin:5px;"></canvas>
+            <canvas id="bottom" style="display:block;margin:5px;"></canvas>
+
+          
+          -->
+
+          <p></p>
+
+      
+      </div>
+      <article>
+        <div class="step" data-step="d3.geoMillerRaw-d3.geoMillerRaw-d3.geoMillerRaw-choropleth-abortion" data-color="grey" , data-content="">
+          <p>Mercator-Gall-Peters Finally Paints Accurate Picture of Earth: See What it reveals about COVID cases</p>
+        </div>
+        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="blue">
+          <p>Winkel-Triple-Mercator-finally shows the true rates of abortion </p>
+        </div>
+        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="red">
+          <p>See how countries homicide measures ACTUALLY stack up </p>
+        </div>
+        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="green" data-content="">
+          <p>Your Map has been lying to you -- compared to othr countries where you live is way less safe than you
+            though! </p>
+        </div>
+        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="pink" data-content="">
+          <p>COVID Cases Wrack Southern Hemisphere, Finally Accurate Map Finds </p>
+        </div>
+        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="pink" data-content="">
+          <p>This map will FINALLY make you see the reproductive rights situation for what it is</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Explanation Section-->
+
+    <section class="break">
+      <p>...</p>
+    </section>
+    <section id="scrolly">
+      <div class="sticky-thing map-monster sticky-size-large">
+        <iframe class='iframe' frameborder="0" height="450px"
+          src="https://observablehq.com/embed/0040896bb6b3e2d0?cells=map"></iframe>
+        <p></p>
+      </div>
+
+      <article class="wide">
+        <div class="step" data-step="0" data-color="grey" , data-content="">
+          <p>Wait, what's going on here?</p>
+          <p>
+            That was what we have so deemed, a ‘projection monster.’ Equirectalinear with azimuthal with dot density
+            with . The projection monster combines different projections and visualization techniques to balance
+            distortion in the least helpful way.
+          </p>
+        </div>
+        <div class="step" data-step="1" data-color="blue">
+          <p>
+            But you may be asking yourself… why? Every map involves choices. To make oceans blue or pink. To display
+            text in Helvetica or with Hieroglyphics. To include grid lines (otherwise known as graticules, those pesky
+            buggers that traverse the earth). Every map is a compromise of something. What to include. What not to
+            include. How to flatten the earth from a sphere (or rather ellipsoid) into a flat thing shown on a screen.
+          </p>
+        </div>
+        <div class="step" data-step="2" data-color="var(--primary-color)">
+          <p>Each of those decisions has different implications. In many ways, it's up to the map-maker ( I say map
+            maker and not cartographer because chances are that many of the maps you have consumed recently were made by
+            people other than cartographers). But as a map reader, you also have a role. Particularly in today’s
+            share-click culture, you must be able to look critically at what you see. TO distinguish what looks right,
+            what looks wrong, and how the author might be trying to persuade you one way or another. To look with a wary
+            eye, see the diamonds in the rough. In other words, a “taste” for maps. </p>
+        </div>
+        <div class="step" data-step="3" data-color="var(--secondary-color)" data-content="">
+          <p>What then, does this have to do with that monstrosity on the other page? Yes, it is a horrendous
+            amalgamation, but it is also a map. What does it actually show? Through its extremity, the perils and
+            positives of projections are revealed. Let's break it down.</p>
+        </div>
+        <div class="step" data-step="4" data-color="pink" data-content="">
+          <p>Each “map monster” is generated based on a few specific parameters.</p>
+          <ul>
+            <li>
+              Story / data. At the heart of every thematic map is a story. How many people were born. Died. Are good at
+              reading. Got lost. Here, the different data sets are explored: access to abortion, climate change (as
+              measured by temperature) and gun control. If you upload your data in the appropriate format you can
+              explore it to.
+
+            </li>
+            <li>
+              Projections. There are hundreds of projections. Here we should the whole gambit. Why? Every projection
+              must distort one or more of distance, direction, shape, or area. Different types of projections are better
+              suited towards different things. Projections can be classified by projectable surface (cylinder, cone,
+              plane, others) . Projection properties. Light Source. Etc. Here the focus is on gaining a basic ‘feeling’
+              for what to look for when reading a map. If you want to learn the differences between __ and __ thats
+              great. But what we are aiming for here is the ability to look critically and consider the relationship
+              between the projection used and the impact that the story has.
+
+            </li>
+            <li>
+              Symbolization / visual variable encoding. How do we take our data and put it on the map? Color, dot
+              density, etc.
+            </li>
+          </ul>
+        </div>
+        <div class="step" data-step="#" data-color="blue">
+          <p>
+
+          </p>
+        </div>
+        <div class="step" data-step="5" data-color="green" data-content="">
+          <p>Finally, each “map” has a randomized number of projections. A normal map would have just one, of course. We
+            show additional projections to show contrast and allow comparison between the different distortions. The
+            projections are sampled based on the contrasting distortion principles; each projection is combined with
+            others that distort one of the other dimensions. </p>
+        </div>
+
+        <div class="step" data-step="6" data-color="white" data-content="">
+          <p>Combined, each ‘projection monster’ tells a different story. This different story is then reflected by the
+            accompanying title. For each data (remember, there are three) the text stays the same–after all, it is real
+            data– but the title reflects both the projections, and how the title doesn’t necessarily need to match what
+            is actually being shown. At the same time, some “monsters” show the opposite–how despite their differences
+            in distortion, there are continuities and truths that the map projections aren’t affecting. </p>
+        </div>
+
+      </article>
+    </section>
+
+    <section id="outro">
+
+
+    </section>
+    <section id="credits">
+      <div>
+        Credits
+        <ul>
+          <li>go to Russel Goldberg for the Scrollama JavaScript Library.</li>
+          <li> Base Template used for Starting this project was forked from Jonathon Soma
+            (https://github.com/jsoma/simplified-scrollama-scrollytelling/)</li>
+          <li>Observable and Mike Bostock for Starting Code for the Projection visualizations</li>
+          <li>UN Data: Access to Abortion and International Homicide Data </li>
+          <li>John Hopkins University: COVID Data</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- <div class='debug'></div> -->
+  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="index.js"></script> <!-- Map Projection Rotation -->
+
+</body>
+
+</html>

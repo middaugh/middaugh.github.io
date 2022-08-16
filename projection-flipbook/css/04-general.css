@@ -1,0 +1,69 @@
+@import "01_settings.css"; 
+
+body {
+    font-family: var(--main-font);
+}
+
+article{
+    background: none; 
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    /* background-image: url('../images/background.svg');  */
+    /* background-size: fit; */
+    /* background-repeat:  no-repeat; */
+    background-color: #878e88;
+    /* background-color: #6E9075;  */
+}
+
+h1, h2, h3, h4, h5{
+    font-family: var(--header-font);
+    margin-bottom: 10px;
+}
+
+p{
+    font-size: var(--font-size);
+}
+
+h1{
+    font-size: 80px; 
+}
+
+
+/* INITIAL FROM SCROLLAMA */
+* {
+    box-sizing: border-box;
+  }
+
+  
+  body {
+    font-family: var(--body-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 1280px;
+    color: #fa9d6c; 
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    margin: 0;
+    font-weight: 400;
+  }
+  
+  a,
+  a:visited,
+  a:hover {
+    color: teal;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+  

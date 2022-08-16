@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>Dot density map</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-geo-polygon@1"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
+    <script src="base-flipbook-functions.js"></script>
+    <script src="dot-density.js"></script>
+</head>
+
+<style>
+    .parent {
+        position: relative;
+        display: block;
+    }
+</style>
+
+<body>
+
+
+    <div id="container">
+        <div id="topContainer" class="parent">
+            <canvas id="top" class="top"></canvas> <!-- Create Inivisible Canvas to go on top-->
+            <canvas id="topHidden" class="top-hidden hidden"></canvas> <!-- Create Inivisible Canvas to go on top-->
+        </div>
+        <div id="middleContainer" class="parent">
+            <canvas id="middle" class="middle"></canvas>
+            <canvas id="middleHidden" class="middle-hidden hidden"></canvas>
+        </div>
+        <div id="bottomContainer" class="parent">
+            <canvas id="bottom" class="bottom"></canvas>
+            <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    // Needs to be defined ahead of D3.ready() 
+    var densityValues = d3.map();
+
+
+    d3.queue()
+        .defer(d3.json, "/data/countries-110m.json")
+        .defer(d3.csv, "/data/covid-deaths-per-100000.csv", function (d) { densityValues.set(d.id, { id: d.id, value: +d.value }); })
+        .await(ready);
+    function ready(error, blocks) {
+        //d3.json("/data/countries-110m.json", function (error, blocks) {
+        let countries = topojson.feature(blocks, blocks.objects.countries);
+        countries.features = countries.features.filter(feature => feature.properties.name !== 'Fiji'); // Remove because of problems with Clipping
+        let features = countries.features;
+
+
+        var outline = ({ type: "Sphere" });
+        var projection = d3.geoMercator();
+
+        var width = 600; 
+        var height = 400;
+
+        var topCanvasId = "top"
+        var topHiddenCanvasId = "topHidden"
+
+        var middleCanvasId = "middle"
+        var middleHiddenCanvasId = "middleHidden"
+
+        var bottomCanvasId = "bottom"
+        var bottomHiddenCanvasId = "bottomHidden"
+
+        
+
+
+
+        var topProjection = d3.geoMercator();
+        var middleProjection = d3.geoEckert2();
+        var bottomProjection = d3.geoMercator();
+
+
+        var i = features.length;
+
+
+
+        topContext = positionBase(topCanvasId, width, height).node().getContext('2d')
+        middleContext = positionBase(middleCanvasId, width, height).node().getContext('2d')
+        bottomContext = positionBase(bottomCanvasId, width, height).node().getContext('2d')
+
+
+        makeDotDensity(topContext, topProjection, 30, 85, features, densityValues)
+        makeDotDensity(middleContext, middleProjection, -30, 30, features, densityValues);
+        makeDotDensity(bottomContext, bottomProjection, -85, -30, features, densityValues)
+
+    }
+
+
+
+</script>
+
+
+
+</html>

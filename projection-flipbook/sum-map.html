@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>Dot density map</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-geo-polygon@1"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo-projection@4"></script>
+    <script src="base-flipbook-functions.js"></script>
+    <script src="dot-density.js"></script>
+</head>
+
+<style>
+    .parent {
+        position: relative;
+        display: block;
+    }
+</style>
+
+<body>
+
+
+    <div id="container">
+        <div id="topContainer" class="parent">
+            <canvas id="top" class="top"></canvas> <!-- Create Inivisible Canvas to go on top-->
+            <canvas id="topHidden" class="top-hidden hidden"></canvas> <!-- Create Inivisible Canvas to go on top-->
+        </div>
+        <div id="middleContainer" class="parent">
+            <canvas id="middle" class="middle"></canvas>
+            <canvas id="middleHidden" class="middle-hidden hidden"></canvas>
+        </div>
+        <div id="bottomContainer" class="parent">
+            <canvas id="bottom" class="bottom"></canvas>
+            <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+function convertRange( value, r1, r2 ) { 
+    return ( value - r1[ 0 ] ) * ( r2[ 1 ] - r2[ 0 ] ) / ( r1[ 1 ] - r1[ 0 ] ) + r2[ 0 ];
+}
+
+
+
+var densityValues = d3.map();
+d3.queue()
+        .defer(d3.json, "/data/countries-110m.json")
+        .defer(d3.csv, "/data/covid-cases.csv", function (d) { densityValues.set(d.id, +d.value); })
+        .await(ready);
+    function ready(error, blocks) {
+        console.log(densityValues)
+        var allValues = densityValues.values()
+        
+
+        var values = allValues.map(function(o){
+                return o.y;
+            }).filter(function(val) {
+                return val !== null
+            });
+
+
+        //const sum = allValues.reduce((partialSum, a) => partialSum + a, 0);
+        console.log(Math.max(values)); 
+        
+        console.log(convertRange( allValues[0], [ 0, Math.max(allValues) ], [ 10, 100 ])); 
+
+
+
+    }
+
+    
+
+
+
+
+</script>

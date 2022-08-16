@@ -1,0 +1,201 @@
+﻿original-country-name,country,m49-code,iso-alpha3-code,abortion-law,value,id
+Andorra,Andorra,20,FALSE,prohibited,1,020
+Aruba,Aruba,533,ABW,prohibited,1,533
+Congo (Brazzaville),Congo,178,COG,prohibited,1,178
+Curacao,Curaçao,531,CUW,prohibited,1,531
+Dominican Republic,Dominican Republic,214,DOM,prohibited,1,214
+Egypt ,Egypt,818,EGY,prohibited,1,818
+El Salvador,El Salvador,222,SLV,prohibited,1,222
+Haiti,Haiti,332,HTI,prohibited,1,332
+Honduras,Honduras,340,HND,prohibited,1,340
+Iraq,Iraq,368,IRQ,prohibited,1,368
+Jamaica,Jamaica,388,JAM,prohibited,1,388
+Laos,Lao People's Democratic Republic,418,LAO,prohibited,1,418
+Madagascar,Madagascar,450,MDG,prohibited,1,450
+Malta,Malta,470,MLT,prohibited,1,470
+Mauritania,Mauritania,478,MRT,prohibited,1,478
+Nicaragua,Nicaragua,558,NIC,prohibited,1,558
+Palau,Palau,585,PLW,prohibited,1,585
+Philippines,Philippines,608,PHL,prohibited,1,608
+San marino,San Marino,674,SMR,prohibited,1,674
+Senegal,Senegal,686,SEN,prohibited,1,686
+Sierra Leone,Sierra Leone,694,SLE,prohibited,1,694
+Suriname,Suriname,740,SUR,prohibited,1,740
+Tonga,Tonga,776,TON,prohibited,1,776
+West Bank & Gaza Strip,0,#N/A,#N/A,prohibited,1,#N/A
+Afghanistan,Afghanistan,4,AFG,save-womens-life,2,004
+Antigua & Barbuda,Antigua and Barbuda,28,ATG,save-womens-life,2,028
+Bahrain,Bahrain,48,BHR,save-womens-life,2,048
+Bangladesh,Bangladesh,50,BGD,save-womens-life,2,050
+Bhutan,Bhutan,64,BTN,save-womens-life,2,064
+Brazil,Brazil,76,BRA,save-womens-life,2,076
+Brunei Darussalam,Brunei Darussalam,96,BRN,save-womens-life,2,096
+Chile,Chile,152,CHL,save-womens-life,2,152
+Cote d'Ivoire,Côte d’Ivoire,384,CIV,save-womens-life,2,384
+Dominica,Dominica,212,DMA,save-womens-life,2,212
+Gabon,Gabon,266,GAB,save-womens-life,2,266
+Gambia,Gambia,270,GMB,save-womens-life,2,270
+Guatemala,Grenada,308,GRD,save-womens-life,2,308
+Indonesia,Indonesia,360,IDN,save-womens-life,2,360
+Iran,Iran (Islamic Republic of),364,IRN,save-womens-life,2,364
+Kiribati,Kiribati,296,KIR,save-womens-life,2,296
+Lebanon,Lebanon,422,LBN,save-womens-life,2,422
+Libya,Libya,434,LBY,save-womens-life,2,434
+Malawi,Malawi,454,MWI,save-womens-life,2,454
+Mali,Mali,466,MLI,save-womens-life,2,466
+Marshall Islands,Marshall Islands,584,MHL,save-womens-life,2,584
+Mexico,Mayotte,175,MYT,save-womens-life,2,175
+Micronesia,Mexico,484,MEX,save-womens-life,2,484
+Myanmar,Myanmar,104,MMR,save-womens-life,2,104
+Nigeria,Nigeria,566,NGA,save-womens-life,2,566
+Oman,Oman,512,OMN,save-womens-life,2,512
+Panama,Panama,591,PAN,save-womens-life,2,591
+Papua New Guinea,Papua New Guinea,598,PNG,save-womens-life,2,598
+Paraguay,Paraguay,600,PRY,save-womens-life,2,600
+Solomon Islands,Solomon Islands,90,SLB,save-womens-life,2,090
+Somalia,Somalia,706,SOM,save-womens-life,2,706
+South Sudan,South Sudan,728,SSD,save-womens-life,2,728
+Sri Lanka,Sri Lanka,144,LKA,save-womens-life,2,144
+Sudan,Sudan,729,SDN,save-womens-life,2,729
+Syria,Syrian Arab Republic,760,SYR,save-womens-life,2,760
+Tanzania,United Republic of Tanzania,834,TZA,save-womens-life,2,834
+Timor-Leste,Timor-Leste,626,TLS,save-womens-life,2,626
+Tuvalu,Tuvalu,798,TUV,save-womens-life,2,798
+Uganda,Uganda,800,UGA,save-womens-life,2,800
+United Arab Emirates (UAE),United Arab Emirates,784,ARE,save-womens-life,2,784
+Venezuela,Venezuela (Bolivarian Republic of),862,VEN,save-womens-life,2,862
+Yemen,Yemen,887,YEM,save-womens-life,2,887
+Algeria,Algeria,12,DZA,preserve-health,3,012
+Angola,Angola,24,AGO,preserve-health,3,024
+Bahamas,Bahamas,44,BHS,preserve-health,3,044
+Benin,Benin,204,BEN,preserve-health,3,204
+Bolivia,Bolivia (Plurinational State of),68,BOL,preserve-health,3,068
+Botswana,Botswana,72,BWA,preserve-health,3,072
+Burkina Faso,Burkina Faso,854,BFA,preserve-health,3,854
+Burundi,Burundi,108,BDI,preserve-health,3,108
+Cameroon,Cambodia,116,KHM,preserve-health,3,116
+Central African Republic,Central African Republic,140,CAF,preserve-health,3,140
+Chad,Chad,148,TCD,preserve-health,3,148
+Colombia,Colombia,170,COL,preserve-health,3,170
+Comoros,Comoros,174,COM,preserve-health,3,174
+Costa Rica,Costa Rica,188,CRI,preserve-health,3,188
+Democratic Republic of Congo,Democratic Republic of the Congo,180,COD,preserve-health,3,180
+Djibouti,Djibouti,262,DJI,preserve-health,3,262
+Ecuador,Ecuador,218,ECU,preserve-health,3,218
+Equatorial Guinea,Equatorial Guinea,226,GNQ,preserve-health,3,226
+Eritrea,Eritrea,232,ERI,preserve-health,3,232
+Eswatini,Eswatini,748,SWZ,preserve-health,3,748
+Ghana,Ghana,288,GHA,preserve-health,3,288
+Grenada,Greenland,304,GRL,preserve-health,3,304
+Guinea,Guadeloupe,312,GLP,preserve-health,3,312
+Israel,Israel,376,ISR,preserve-health,3,376
+Jordan,Jordan,400,JOR,preserve-health,3,400
+Kenya,Kenya,404,KEN,preserve-health,3,404
+Kuwait,Kuwait,414,KWT,preserve-health,3,414
+Lesotho,Lesotho,426,LSO,preserve-health,3,426
+Liberia,Liberia,430,LBR,preserve-health,3,430
+Liechtenstein,Liechtenstein,438,LIE,preserve-health,3,438
+Malaysia,Malaysia,458,MYS,preserve-health,3,458
+Mauritius,Mauritius,480,MUS,preserve-health,3,480
+Monaco,Monaco,492,MCO,preserve-health,3,492
+Morocco,Morocco,504,MAR,preserve-health,3,504
+Namibia,Namibia,516,NAM,preserve-health,3,516
+Nauru,Nauru,520,NRU,preserve-health,3,520
+Niger,Niger,562,NER,preserve-health,3,562
+Pakistan,Pakistan,586,PAK,preserve-health,3,586
+Peru,Peru,604,PER,preserve-health,3,604
+Poland,Poland,616,POL,preserve-health,3,616
+Qatar,Qatar,634,QAT,preserve-health,3,634
+Republic of Korea,Republic of Korea,410,KOR,preserve-health,3,410
+Saint Kitts & Nevis,Saint Kitts and Nevis,659,KNA,preserve-health,3,659
+Saint Lucia,Saint Lucia,662,LCA,preserve-health,3,662
+Samoa,Samoa,882,WSM,preserve-health,3,882
+Saudi Arabia,Saudi Arabia,682,SAU,preserve-health,3,682
+Seychelles,Seychelles,690,SYC,preserve-health,3,690
+Togo,Togo,768,TGO,preserve-health,3,768
+Trinidad & Tobago,Trinidad and Tobago,780,TTO,preserve-health,3,780
+Vanuatu,Vanuatu,548,VUT,preserve-health,3,548
+Zimbabwe,Zimbabwe,716,ZWE,preserve-health,3,716
+Barbados,Barbados,52,BRB,socioeconomic-grounds,4,052
+Belize,Belize,84,BLZ,socioeconomic-grounds,4,084
+Ethiopia,Ethiopia,231,ETH,socioeconomic-grounds,4,231
+Fiji,Fiji,242,FJI,socioeconomic-grounds,4,242
+Finland,Finland,246,FIN,socioeconomic-grounds,4,246
+Great Britain,United Kingdom of Great Britain and Northern Ireland,826,GBR,socioeconomic-grounds,4,826
+Hong Kong,"China, Hong Kong Special Administrative Region",344,HKG,socioeconomic-grounds,4,344
+India,India,356,IND,socioeconomic-grounds,4,356
+Japan,Japan,392,JPN,socioeconomic-grounds,4,392
+Rwanda,Rwanda,646,RWA,socioeconomic-grounds,4,646
+Saint Vincent & Grenadines,Saint Vincent and the Grenadines,670,VCT,socioeconomic-grounds,4,670
+Zambia,Zambia,894,ZMB,socioeconomic-grounds,4,894
+Albania,Albania,8,ALB,on-request,5,008
+Argentina,Argentina,32,ARG,on-request,5,032
+Armenia,Armenia,51,ARM,on-request,5,051
+Australia,Australia,36,AUS,on-request,5,036
+Austria,Austria,40,AUT,on-request,5,040
+Azerbaijan,Azerbaijan,31,AZE,on-request,5,031
+Belarus,Belarus,112,BLR,on-request,5,112
+Belgium,Belgium,56,BEL,on-request,5,056
+Bosnia-Herzegovina,Bosnia and Herzegovina,70,BIH,on-request,5,070
+Bulgaria,Bulgaria,100,BGR,on-request,5,100
+Cambodia,Cabo Verde,132,CPV,on-request,5,132
+Canada,Canada,124,CAN,on-request,5,124
+Cape Verde,Cayman Islands,136,CYM,on-request,5,136
+China,China,156,CHN,on-request,5,156
+Croatia,Croatia,191,HRV,on-request,5,191
+Cuba,Cuba,192,CUB,on-request,5,192
+Cyprus,Cyprus,196,CYP,on-request,5,196
+Czech Republic,Czechia,203,CZE,on-request,5,203
+Democratic People's Republic of Korea,Democratic People's Republic of Korea,408,PRK,on-request,5,408
+Denmark,Denmark,208,DNK,on-request,5,208
+Estonia,Estonia,233,EST,on-request,5,233
+France,France,250,FRA,on-request,5,250
+French Guiana,French Guiana,254,GUF,on-request,5,254
+Georgia,Georgia,268,GEO,on-request,5,268
+Germany,Germany,276,DEU,on-request,5,276
+Greece,Greece,300,GRC,on-request,5,300
+Guinea-Bissau,Guam,316,GUM,on-request,5,316
+Guyana,Guatemala,320,GTM,on-request,5,320
+Hungary,Hungary,348,HUN,on-request,5,348
+Iceland,Iceland,352,ISL,on-request,5,352
+Ireland,Ireland,372,IRL,on-request,5,372
+Italy,Italy,380,ITA,on-request,5,380
+Kazakhstan,Kazakhstan,398,KAZ,on-request,5,398
+Kyrgyzstan,Kyrgyzstan,417,KGZ,on-request,5,417
+Latvia,Latvia,428,LVA,on-request,5,428
+Lithuania,Lithuania,440,LTU,on-request,5,440
+Luxembourg,Luxembourg,442,LUX,on-request,5,442
+Maldives,Maldives,462,MDV,on-request,5,462
+Moldova,Micronesia (Federated States of),583,FSM,on-request,5,583
+Mongolia,Mongolia,496,MNG,on-request,5,496
+Montenegro,Montenegro,499,MNE,on-request,5,499
+Mozambique,Mozambique,508,MOZ,on-request,5,508
+Nepal,Nepal,524,NPL,on-request,5,524
+Netherlands,Netherlands,528,NLD,on-request,5,528
+New Caledonia,New Caledonia,540,NCL,on-request,5,540
+New Zealand,New Zealand,554,NZL,on-request,5,554
+Norway,Norway,578,NOR,on-request,5,578
+Portugal,Portugal,620,PRT,on-request,5,620
+Puerto Rico,Puerto Rico,630,PRI,on-request,5,630
+Republic of North Macedonia,North Macedonia,807,MKD,on-request,5,807
+Romania,Romania,642,ROU,on-request,5,642
+Russian Fed.,Russian Federation,643,RUS,on-request,5,643
+Sao Tome & Principe,Sao Tome and Principe,678,STP,on-request,5,678
+Serbia,Serbia,688,SRB,on-request,5,688
+Singapore,Singapore,702,SGP,on-request,5,702
+Slovak Republic,Slovakia,703,SVK,on-request,5,703
+Slovenia,Slovenia,705,SVN,on-request,5,705
+South Africa,South Africa,710,ZAF,on-request,5,710
+Spain ,Spain,724,ESP,on-request,5,724
+Sweden,Sweden,752,SWE,on-request,5,752
+Switzerland,Switzerland,756,CHE,on-request,5,756
+Tajikistan,Tajikistan,762,TJK,on-request,5,762
+Thailand,Thailand,764,THA,on-request,5,764
+Tunisia,Tunisia,788,TUN,on-request,5,788
+Turkey,Turkey,792,TUR,on-request,5,792
+Turkmenistan,Turkmenistan,795,TKM,on-request,5,795
+Ukraine,Ukraine,804,UKR,on-request,5,804
+United States,United States of America,840,USA,on-request,5,840
+Uruguay,Uruguay,858,URY,on-request,5,858
+Uzebkistan,Uzbekistan,860,UZB,on-request,5,860
+Vietnam,Viet Nam,704,VNM,on-request,5,704

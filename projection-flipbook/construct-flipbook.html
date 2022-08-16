@@ -1,0 +1,241 @@
+<html>
+
+<head>
+    <title>Construct Flipbook</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-geo@1"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://unpkg.com/d3-geo-polygon@1"></script>
+    <script src="https://d3js.org/topojson.v2.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-ease@3"></script>
+    <script src="projections.js"></script> <!-- Map Projection Rotation -->
+    <script src="scripts/base-flipbook-functions.js"></script>
+    <script src="scripts/dot-density.js"></script>
+    <script src="scripts/choropleth.js"></script>
+
+
+</head>
+
+<style>
+    body {
+        background-color: #878e88;
+        ;
+    }
+
+    .parent {
+        position: relative;
+        display: block;
+        margin-bottom: 8px;
+        width: 800px;
+        height: 700px;
+    }
+</style>
+
+<body>
+
+    <h1>This is the Construct a Flipbook Page.</h1>
+
+    <div id="container">
+        <div id="topContainer" class="parent">
+            <canvas id="top" class="top"></canvas> <!-- Create Inivisible Canvas to go on top-->
+            <canvas id="topHidden" class="top-hidden hidden"></canvas> <!-- Create Inivisible Canvas to go on top-->
+        </div>
+        <div id="middleContainer" class="parent">
+            <canvas id="middle" class="middle"></canvas>
+            <canvas id="middleHidden" class="middle-hidden hidden"></canvas>
+        </div>
+        <div id="bottomContainer" class="parent">
+            <canvas id="bottom" class="bottom"></canvas>
+            <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    var abortion = d3.map();
+    var covidDeaths = d3.map();
+    var covidCases = d3.map();
+    var covidCasesDensity = d3.map();
+    var covidDeathsDensity = d3.map();
+
+    function interpolateProjection(raw0, raw1) {
+        // THIS FUNCTION TAKEN DIRECTLY FROM MIKE BOSTOCK'S ORTHOGRAPHIC TO EQUIRECTANGULAR BLOCK
+        // https://observablehq.com/@d3/orthographic-to-equirectangular
+        const mutate = d3.geoProjectionMutator(t => (x, y) => {
+            const [x0, y0] = raw0(x, y), [x1, y1] = raw1(x, y);
+            return [x0 + t * (x1 - x0), y0 + t * (y1 - y0)];
+        });
+        let t = 0;
+        return Object.assign(mutate(t), {
+            alpha(_) {
+                return arguments.length ? mutate(t = +_) : t;
+            }
+        });
+    }
+
+    d3.queue()
+        .defer(d3.json, "/data/countries-110m.json")
+        .defer(d3.csv, "/data/abortion-access_clean.csv", function (d) { abortion.set(d.id, +d.value); })
+        .defer(d3.csv, "/data/covid-deaths.csv", function (d) { covidDeaths.set(d.id, +d.value); })
+        .defer(d3.csv, "/data/covid-cases.csv", function (d) { covidCases.set(d.id, +d.value); })
+        .defer(d3.csv, "/data/covid-deaths-per-100000.csv", function (d) { covidDeathsDensity.set(d.id, +d.value); })
+        .defer(d3.csv, "/data/covid-cases-per-100000.csv", function (d) { covidCasesDensity.set(d.id, +d.value); })
+        .await(ready);
+    function ready(error, countries110m) {
+
+        if (error) throw error;
+
+        // Define Map Boundaries 
+        let countries = topojson.feature(countries110m, countries110m.objects.countries);
+        countries.features = countries.features.filter(feature => feature.properties.name !== 'Fiji'); // Remove because of problems with Clipping
+        let features = countries.features;
+        let countrymesh = topojson.mesh(countries110m, countries110m.objects.countries, (a, b) => a !== b)
+        let graticule = d3.geoGraticule10()
+        let outline = ({ type: "Sphere" })
+
+        function transitionSection(canvas, projection, minLat, maxLat, duration) {
+
+            const ease = d3.easeQuadIn;
+            var context = canvas.getContext('2d');
+            var canvasId = canvas.id;
+            console.log(canvasId);
+
+
+            var path = sizeScaleSection(canvas, projection, minLat, maxLat);
+            context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
+            //makeChoropleth(context, path, countries, abortion);
+
+            timer = d3.timer((elapsed) => {
+                // compute how far through the animation we are (0 to 1)
+                const t = Math.min(1, ease(elapsed / (duration - 50)));
+
+                if (t <= 1) {
+                    path = sizeScaleSection(canvas, projection.alpha(t), minLat, maxLat);
+                    context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
+                }
+
+                // if this animation is over
+                if (t == 1) {
+                    // stop this timer since we are done animating.
+                    //currentPath = sizeScaleSection(canvas, projection.alpha(1), minLat, maxLat);
+                    timer.stop()
+                   return [context, projection, minLat, maxLat, features, covidDeaths]
+
+                }
+            });
+
+            // CHOROPLETH
+
+            //makeChoropleth(context, path, countries, abortion);
+
+            // DOT DENSITY
+            // makeDotDensity(context, projection, countries, data)
+            console.log(`outside of the timer loop`)
+
+
+
+
+
+
+
+        }
+
+        var width = 800;
+        var height = 400;
+
+        var topCanvasId = "top"
+        var middleCanvasId = "middle"
+        var bottomCanvasId = "bottom"
+
+
+        var topCanvas = positionBase(topCanvasId, width, height).node()
+        var middleCanvas = positionBase(middleCanvasId, width, height).node()
+        var bottomCanvas = positionBase(bottomCanvasId, width, height).node()
+
+
+        var topContext = topCanvas.getContext('2d')
+        var middleContext = middleCanvas.getContext('2d')
+        var bottomContext = bottomCanvas.getContext('2d')
+
+
+        var selectedProjection0 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+        var selectedProjection1 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+        var selectedProjection2 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+
+        var rawProjection0 = selectedProjection0.projection
+        var rawProjection1 = selectedProjection1.projection
+        var rawProjection2 = selectedProjection2.projection
+
+
+        var projectionRotations = [
+            {
+                'top': interpolateProjection(rawProjection0, rawProjection1),
+                'middle': interpolateProjection(rawProjection1, rawProjection2),
+                'bottom': interpolateProjection(rawProjection2, rawProjection0)
+            },
+
+            {
+                'top': interpolateProjection(rawProjection1, rawProjection2),
+                'middle': interpolateProjection(rawProjection2, rawProjection0),
+                'bottom': interpolateProjection(rawProjection0, rawProjection1)
+            },
+
+            {
+                'top': interpolateProjection(rawProjection2, rawProjection0),
+                'middle': interpolateProjection(rawProjection0, rawProjection1),
+                'bottom': interpolateProjection(rawProjection1, rawProjection2),
+            }
+
+        ]
+
+        // modify to take additional argument
+        function roundOne() {
+            console.log('roundone')
+            transitionSection(topCanvas, projectionRotations[0].top, 30, 85, duration)
+            transitionSection(middleCanvas, projectionRotations[0].middle, -30, 30, duration)
+            transitionSection(bottomCanvas, projectionRotations[0].bottom, -80, -30, duration)
+
+            //makeDotDensity(context, projection.alpha(1), minLat, maxLat, features, covidDeaths)
+        };
+
+        function roundTwo() {
+            console.log('roundtwo')
+            transitionSection(topCanvas, projectionRotations[1].top, 30, 85, duration)
+            transitionSection(middleCanvas, projectionRotations[1].middle, -30, 30, duration)
+            transitionSection(bottomCanvas, projectionRotations[1].bottom, -80, -30, duration)
+        }
+
+        function roundThree() {
+            console.log('roundthree')
+            transitionSection(topCanvas, projectionRotations[2].top, 30, 85, duration)
+            transitionSection(middleCanvas, projectionRotations[2].middle, -30, 30, duration)
+            transitionSection(bottomCanvas, projectionRotations[2].bottom, -80, -30, duration)
+        }
+
+
+        const duration = 3000;
+
+        function fullRotation() {
+            d3.timeout(roundOne, duration + 300)
+            d3.timeout(roundTwo, duration + 300, duration * 2 + 1000);
+            d3.timeout(roundThree, duration + 300, duration * 3.5 + 1000);
+        }
+
+        //d3.timeout(fullRotation(), (duration * 6) + 1000);
+        fullRotation()
+
+    }
+
+
+
+
+
+</script>
+
+
+</html>
