@@ -53,7 +53,7 @@ function sizeScaleSection(canvas, unclippedProjection, minLat, maxLat) {
     // Find the height of a projection by taking the minimum and max values 
     var sectionHeight = d3.geoPath(projection).bounds(outline)[1][1] - d3.geoPath(projection).bounds(outline)[0][1]
 
-    canvas.height = sectionHeight // KEEP OR NOT KEEP? OR RETURN SEPARATE 
+    canvas.height = sectionHeight 
     document.getElementById(canvas.id + `Container`).style.height = sectionHeight + `px`;
 
     // Apply this scale to the clipped projection
@@ -63,4 +63,20 @@ function sizeScaleSection(canvas, unclippedProjection, minLat, maxLat) {
     return path;
 }
 
+
+
+function interpolateProjection(raw0, raw1) {
+    // THIS FUNCTION TAKEN DIRECTLY FROM MIKE BOSTOCK'S ORTHOGRAPHIC TO EQUIRECTANGULAR BLOCK
+    // https://observablehq.com/@d3/orthographic-to-equirectangular
+    const mutate = d3.geoProjectionMutator(t => (x, y) => {
+        const [x0, y0] = raw0(x, y), [x1, y1] = raw1(x, y);
+        return [x0 + t * (x1 - x0), y0 + t * (y1 - y0)];
+    });
+    let t = 0;
+    return Object.assign(mutate(t), {
+        alpha(_) {
+            return arguments.length ? mutate(t = +_) : t;
+        }
+    });
+}
 

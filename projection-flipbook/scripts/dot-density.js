@@ -1,3 +1,24 @@
+function scaleDensityMapping(data) {
+
+    var scaledData = []
+
+    function convertRange(value, r1, r2) {
+      return Math.round((value - r1[0]) * (r2[1] - r2[0]) / (r1[1] - r1[0]) + r2[0]);
+    }
+
+    console.log(...Object.values(data))
+    var maxValue = Math.max(...Object.values(data))
+
+    for (var key in data) {
+      if (data.hasOwnProperty(key)) {
+        data[key] = convertRange(data[key], [0, maxValue], [0, 1000])
+      }
+    }
+    return data
+
+  }
+
+
 function createDensitySetup(context, projection, minLat, maxLat) {
 
     var canvas = context.canvas
@@ -18,12 +39,18 @@ function createDensitySetup(context, projection, minLat, maxLat) {
 }; 
 
 
-function drawDensity(baseContext, hiddenContext, path, pathHidden, features, densityValues) {
+function drawDensity(baseContext, hiddenContext, path, pathHidden, countries, densityValues) {
+    var features = countries.features 
+
+    // Scale all of the data to be used in density graphs
+    densityValues = scaleDensityMapping(densityValues);
 
     // Set the Containing Div Height to the right amount
     document.getElementById(baseContext.canvas.id + `Container`).style.height = baseContext.canvas.height + `px`;
+    hiddenContext.canvas.height = baseContext.canvas.height;
 
-    baseContext.clearRect(0, 0, baseContext.canvas.width, baseContext.canvas.height);
+    //baseContext.clearRect(0, 0, baseContext.canvas.width, baseContext.canvas.height);
+    baseContext.beginPath(), baseContext.strokeStyle = "#fff", path(countries), baseContext.stroke();
     baseContext.save();
     features.forEach(function (d, i) {
         // check that the country id exists in the dataset
@@ -54,8 +81,8 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, features, den
 
         // Find the value if the country exists in the dataset; if it doesn't set the value to zero 
 
-        if (densityValues.has(countryId)) {
-            var pop = densityValues.get(countryId) / 100;
+        if (countryId in densityValues) {
+            var pop = densityValues[countryId]; // TODO Fix me 
         }
         else {
             var pop = 0;
@@ -83,7 +110,7 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, features, den
             y = parseInt(y0 + Math.random() * h);
             // use pixel color to determine if point is within polygon. draw the dot if so.
             if (testPixelColor(imageData, x, y, hiddenContext.canvas.width, r, g)) {
-                drawPixel(x, y, 0, 17, 204, 255);
+                drawPixel(x, y, "rgba(255, 255, 255, 1)"); //#f4b9b2 salmon pink
                 hits++;
             }
 
@@ -98,15 +125,15 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, features, den
         return imageData.data[index + 0] == r && imageData.data[index + 1] == g;
     }
 
-    // there are faster (or prettier) ways to draw lots of dots, but this works
-    function drawPixel(x, y, r, g, b, a) {
-        baseContext.fillStyle = "rgba(" + r + "," + g + "," + b + "," + (a / 255) + ")";
-        baseContext.fillRect(x, y, 1, 1);
+    // 
+    function drawPixel(x, y, rgbaString) {
+        baseContext.fillStyle = rgbaString
+        baseContext.fillRect(x, y, 2, 2);
     }
 };
 
-function makeDotDensity(context, projection, minLat, maxLat, features, densityValues) {
-    console.log('entered make dot ')
+function makeDotDensity(context, projection, minLat, maxLat, countries, densityValues) {
     setup = createDensitySetup(context, projection, minLat, maxLat);
-    drawDensity(...setup, features, densityValues);
+    console.log(setup)
+    drawDensity(...setup, countries, densityValues);
 }

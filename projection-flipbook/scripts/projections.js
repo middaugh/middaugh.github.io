@@ -12,7 +12,9 @@
   {name: "Winkel Tripel", projection: d3.geoWinkel3Raw},
   { name: "Eckert II", projection: d3.geoEckert2Raw, type: 'pseudocylindrical', property: 'equal-area' },
   { name: "Eckert IV", projection: d3.geoEckert4Raw, type: 'cylindrical', property: 'equal-area' },
-  ]
+  {name: "Robinson", projection: d3.geoRobinsonRaw},
+  { name: "Gall-Peters Cylindrical equal-area", value: d3.geoCylindricalEqualArea(), type: 'cylindrical', property: 'equal-area', parallel: 45 }, // Gall Peters
+]
   // var projections = [
   // { name: "Gall-Peters Cylindrical equal-area", value: d3.geoCylindricalEqualArea(), type: 'cylindrical', property: 'equal-area', parallel: 45 }, // Gall Peters
   // { name: "Lambert Cylindrical equal-area", value: d3.geoCylindricalEqualArea(), type: 'cylindrical', property: 'equal-area', parallel: 0 }, // Lambert

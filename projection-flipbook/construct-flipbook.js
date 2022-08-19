@@ -252,13 +252,36 @@
         var bottomContext = bottomCanvas.getContext('2d')
 
 
-        var selectedProjection0 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
-        var selectedProjection1 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
-        var selectedProjection2 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+        // var selectedProjection0 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+        // var selectedProjection1 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
+        // var selectedProjection2 = projectionOptions[Math.floor(Math.random() * projectionOptions.length)];
 
-        var rawProjection0 = selectedProjection0.projection
-        var rawProjection1 = selectedProjection1.projection
-        var rawProjection2 = selectedProjection2.projection
+        // var rawProjection0 = selectedProjection0.projection
+        // var rawProjection1 = selectedProjection1.projection
+        // var rawProjection2 = selectedProjection2.projection
+
+
+        // FIRST TRANSITION GROUP
+        // let rawProjection0 = d3.geoRobinsonRaw; 
+        // let rawProjection1 = d3.geoEquirectangularRaw; 
+        // let rawProjection2 = d3.geoSinusoidalRaw; 
+
+        // SECOND TRANSITION GROUP
+        // let rawProjection0 =  d3.geoMillerRaw; 
+        // let rawProjection1 = d3.geoMollweideRaw; 
+        // let rawProjection2 = d3.geoEquirectangularRaw; 
+
+
+        //THIRD GROUP 
+        d3.geoCylindricalEqualArea()
+        let rawProjection0 = d3.geoCylindricalEqualAreaRaw
+        let rawProjection1 = d3.geoMollweideRaw; 
+        let rawProjection2 = d3.geoEquirectangularRaw; 
+
+
+        console.log(rawProjection0.name)
+
+        // FOURTH GROUP
 
 
         var projectionRotations = [

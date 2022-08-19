@@ -1,15 +1,18 @@
 
 function makeChoropleth(context, path, baseMap, data) {
-    var domain = d3.extent(data.values(), function (d) { return d });
-    var range = d3.interpolateBlues
+    
+    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+    var domain = d3.extent(Object.values(data), function (d) { return d });
+    var range = d3.interpolateGreys
     var color = d3.scaleSequential()
         .domain(domain)
         .interpolator(range);
 
     baseMap.features.forEach(function (d) {
         // check that the country id exists in the dataset
-        if (data.has(d.id) ) {
-            context.fillStyle = color(data.get(d.id));
+        if (d.id in data ) {
+            context.fillStyle = color(data[d.id]);
+            context.strokeStyle = "#fff"
             context.beginPath();
             path(d);
             context.fill();

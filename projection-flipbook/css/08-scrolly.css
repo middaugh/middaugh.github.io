@@ -26,7 +26,7 @@ article {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover; 
+  background-size: cover;
 }
 
 .sticky-thing p {
@@ -37,21 +37,82 @@ article {
 }
 
 .step {
-  margin: 0 auto 15rem auto;
+  padding: 25px;
+  margin: 0 auto 25rem auto;
 }
+
 
 .step:last-child {
   margin-bottom: 0;
 }
 
-.step.is-active, .step.is-active * {
+.step.is-active,
+.step.is-active * {
   background-color: var(--dark-color);
   color: var(--light-color);
+  opacity: 1;
+  font-size: 1.5rem;
+}
+
+.step.hide{
+  background-color: none; 
+  opacity: 0 ;
 }
 
 .step p {
-  text-align: center;
+  color: var(--primary-color);
+  opacity: .5;
+  text-align: justify;
   padding: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: var(--secondary-color);
+}
+
+
+/*** SIDE ADJUSTMENTS ** */
+
+#scrolly-side {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+}
+
+#scrolly-side>* {
+  font-family: var(--header-font);
+  color: var(--accent-color);
+}
+
+#scrolly-side>* {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+#scrolly-side article {
+  position: relative;
+  padding: 0 1rem;
+  max-width: 20rem;
+
+}
+
+#scrolly-side .sticky-thing {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 600px;
+  /*100%*/
+  margin: 0;
+  background-color: transparent;
+  z-index: 0;
+  top: 12.5vh;
+  height: 75vh;
+  /* Center everything inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#scrolly-side .step p{
+  text-align: center; 
 }

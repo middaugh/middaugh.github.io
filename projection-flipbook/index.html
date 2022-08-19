@@ -30,23 +30,27 @@
 <script src="scripts/base-flipbook-functions.js"></script>
 <script src="scripts/dot-density.js"></script>
 <script src="scripts/choropleth.js"></script>
+<script src="scripts/tissot.js"></script>
+
+<style>
+  .parent {
+    position: relative;
+    display: block;
+    margin-bottom: 8px;
+    width: 800px;
+    height: 700px;
+  }
+</style>
+
 <body>
 
 
   <!-- Will it work?-->
   <main>
 
-    <!-- This is where my nav could go if I have any. 
-      <nav></nav>
-      -->
-
-
-
-
     <section id="intro">
       <h1 class="intro__hed primary-color">The Projection Flipbook</h1>
-      <p class="intro__dek light-color">
-
+      <p class="intro__dek light-color" style="margin-top: 20px">
         The truth is not distorted here, but rather a distortion is used to get at truth.
       <figcaption><cite style="color: white;">&mdash;Flannery O'Connor</cite></figcaption>
 
@@ -58,6 +62,59 @@
     </section>
 
     <!-- BRING BACK IN THE NEWS QUOTES SECTION HERE-->
+    <section id="news-quotes" class="">
+
+      <div class="quote-block">
+        <blockquote>
+          Maps Have Been Lying To You Your Entire Life
+        </blockquote>
+        <figcaption><cite>&mdash;IFLifeScience</cite></figcaption>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          The world map you know and love? It's been lying to you.
+        </blockquote>
+        <figcaption><cite>&mdash;Vox</cite></figcaption>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          Your Map Is Lying to You
+        </blockquote>
+        <figcaption><cite>&mdash;Outside</cite></figcaption>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          Maps have been lying to you all your life. Yes, even Google Maps
+        </blockquote>
+        <figcaption> <cite>&mdash;AbcNews</cite></figcaption>
+
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          Why all world maps are wrong
+        </blockquote>
+        <figcaption> <cite>&#8288;&mdash;Vox&#8288;</cite></figcaption>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          Why every world map you're looking at is WRONG
+        </blockquote>
+        <figcaption> <cite>&mdash;Daily Mail</cite></figcaption>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>
+          <!-- https://gisgeography.com/map-projections/-->
+          What are Map Projections? (And Why They Are Deceiving To Us)
+        </blockquote>
+        <figcaption> <cite>&mdash;GISGeography</cite></figcaption>
+      </div>
+    </section>
 
     <script>
       // modified from http://jsfiddle.net/tiffhockin/fesvq8u0/
@@ -92,54 +149,62 @@
     </script>
 
 
-
-    <!-- 
-
-        ADD IN THE MAP ONCE WE HAVE SCROLLY WORKING
-              <section id="map">
-        <iframe width="100%" height="787" frameborder="0"
-  src="https://observablehq.com/embed/0040896bb6b3e2d0?cells=map"></iframe>
-      </section>
-
-      -->
-
-
-    <!-- Create Interactively -- Use the D3 to have populate the side titles-->
-    <!-- Implement the d3 in such a way so that it grabs the data-step from div, and based on that creates does which iteration of the chart. datastep 1 would be Mercator-Robinson-Peters, etc. and then 3 would be Robsinson-Mercator-Peters.
-      Could also do by [datastep + 1] /  %3, %2, etch to determine which order;  -->
     <section id="scrolly-side">
       <div id="projectionFlipbook" class="sticky-thing map-monster sticky-size-large">
-        <!-- Create a div where the graph will take place 
-                      <canvas id="top" style="display:block;margin:5px;"></canvas>
-            <canvas id="middle" style="display:block;margin:5px;"></canvas>
-            <canvas id="bottom" style="display:block;margin:5px;"></canvas>
 
-          
-          -->
 
-          <p></p>
+        <div id="container">
+          <div id="topContainer" class="parent">
+            <canvas id="top" class="top"></canvas>
+            <canvas id="topHidden" class="top-hidden hidden"></canvas>
+          </div>
+          <div id="middleContainer" class="parent">
+            <canvas id="middle" class="middle"></canvas>
+            <canvas id="middleHidden" class="middle-hidden hidden"></canvas>
+          </div>
+          <div id="bottomContainer" class="parent">
+            <canvas id="bottom" class="bottom"></canvas>
+            <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
+          </div>
+        </div>
 
-      
+
       </div>
       <article>
-        <div class="step" data-step="d3.geoMillerRaw-d3.geoMillerRaw-d3.geoMillerRaw-choropleth-abortion" data-color="grey" , data-content="">
-          <p>Mercator-Gall-Peters Finally Paints Accurate Picture of Earth: See What it reveals about COVID cases</p>
+        <div class="step hide" data-display="hide">
+          <p style="display:none;"></p>
         </div>
-        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="blue">
-          <p>Winkel-Triple-Mercator-finally shows the true rates of abortion </p>
+        <div class="step" data-display="show" ,
+          data-projections="d3.geoRobinsonRaw-d3.geoMercatorRaw-d3.geoSinusoidalRaw" data-data="abortion"
+          data-viztype="choropleth" data-color="grey" , data-content="">
+          <p>Robinson-Mercator-Sinusoidal Map Finally Paints Accurate Picture of Reproductive Rights Around the Globe
+          </p>
         </div>
-        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="red">
-          <p>See how countries homicide measures ACTUALLY stack up </p>
+        <div class="step" data-display="show" ,
+          data-projections="d3.geoMercatorRaw-d3.geoEquirectangularRaw-d3.geoBakerRaw" data-data="covidDeaths"
+          data-viztype="dotDensity">
+          <p>Mercator-Equirectangular-Baker Projection Shows actual COVID-19 Mortality</p>
         </div>
-        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="green" data-content="">
-          <p>Your Map has been lying to you -- compared to othr countries where you live is way less safe than you
-            though! </p>
+        <div class="step" data-display="show" , data-projections="d3.geoMillerRaw-d3.geoEckert4Raw-d3.geoMollweideRaw"
+          data-data="abortion" data-viztype="choropleth">
+          <p>See how access to Abortion Rights ACTUALLY stack up on this Miller-Eckert-Mollweide map </p>
         </div>
-        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="pink" data-content="">
-          <p>COVID Cases Wrack Southern Hemisphere, Finally Accurate Map Finds </p>
+        <div class="step" data-display="show" ,
+          data-projections="d3.geoSinusoidalRaw-d3.geoMollweideRaw-d3.geoEquirectangularRaw" data-data="covidCases"
+          data-viztype="dotDensity">
+          <p>COVID-19 Cases Distribution looks vastly different when viewed with Sinusoidal-Mollweide-Equirecantular
+            Projeciton </p>
         </div>
-        <div class="step" data-step="proj1-proj2-proj3-mapType-mapData" data-color="pink" data-content="">
-          <p>This map will FINALLY make you see the reproductive rights situation for what it is</p>
+        <div class="step" data-display="show" , data-projections="d3.geoCollignonRaw-d3.geoMillerRaw-d3.geoRobinsonRaw"
+          data-data="covidDeathsDensity" data-viztype="choropleth">
+          <p>Collignon-Miller-Robinson finally shows COVID Death Toll Accurately </p>
+        </div>
+        <div class="step" data-display="show" , data-projections="d3.geoBakerRaw-d3.geoEckert4Raw-d3.geoMercatorRaw"
+          data-data="abortion" data-viztype="choropleth">
+          <p>The Baker-Eckert-Mercator projection casts light on the reproductive rights situation for what it is</p>
+        </div>
+        <div class="step" data-display="hide">
+          <p style="display:none;"></p>
         </div>
       </article>
     </section>
@@ -147,97 +212,72 @@
     <!-- Explanation Section-->
 
     <section class="break">
-      <p>...</p>
+      <p>... confused?</p>
     </section>
     <section id="scrolly">
       <div class="sticky-thing map-monster sticky-size-large">
-        <iframe class='iframe' frameborder="0" height="450px"
-          src="https://observablehq.com/embed/0040896bb6b3e2d0?cells=map"></iframe>
         <p></p>
       </div>
 
       <article class="wide">
         <div class="step" data-step="0" data-color="grey" , data-content="">
-          <p>Wait, what's going on here?</p>
+          <p>Let’s start at the beginning. </p>
           <p>
-            That was what we have so deemed, a ‘projection monster.’ Equirectalinear with azimuthal with dot density
-            with . The projection monster combines different projections and visualization techniques to balance
-            distortion in the least helpful way.
+            Every day we look at maps. In the News. On Twitter. The creation of every map involves choices. One of these
+            choices is how to flatten the earth; how to project points from a round globe onto a flat plan. Every map
+            projection–yes, every—map projection must distort one or more of direction, distance, area, or shape.
           </p>
         </div>
         <div class="step" data-step="1" data-color="blue">
           <p>
-            But you may be asking yourself… why? Every map involves choices. To make oceans blue or pink. To display
-            text in Helvetica or with Hieroglyphics. To include grid lines (otherwise known as graticules, those pesky
-            buggers that traverse the earth). Every map is a compromise of something. What to include. What not to
-            include. How to flatten the earth from a sphere (or rather ellipsoid) into a flat thing shown on a screen.
+            Remember the quotes at the beginning? Are they true? Technically yes–every map must distort in some way or
+            another. However, they suggest that map projections are purposefully misleading.
           </p>
         </div>
         <div class="step" data-step="2" data-color="var(--primary-color)">
-          <p>Each of those decisions has different implications. In many ways, it's up to the map-maker ( I say map
-            maker and not cartographer because chances are that many of the maps you have consumed recently were made by
-            people other than cartographers). But as a map reader, you also have a role. Particularly in today’s
-            share-click culture, you must be able to look critically at what you see. TO distinguish what looks right,
-            what looks wrong, and how the author might be trying to persuade you one way or another. To look with a wary
-            eye, see the diamonds in the rough. In other words, a “taste” for maps. </p>
+          <p>In The Projection Flipbook, each section of the map is a different map projection. Some projections Each
+            map shows real-life data–in this case, COVID and access to abortion data– referenced in the titles at right.
+            The circles that are overlaid on top of the maps are called Tissot’s Indicatrix. These indicatrices show the
+            distortion of the shape and area at that particular point. In The Projection Flipbook, the side-by-side
+            placement of different projections with their indicatrices shows just how much variation there is between
+            different map projections. By coupling outlandish maps with titles claim accuracy, The Projection Flipbook
+            pokes fun at the idea that there could be one way that would truly accurately portray said data. </p>
         </div>
         <div class="step" data-step="3" data-color="var(--secondary-color)" data-content="">
-          <p>What then, does this have to do with that monstrosity on the other page? Yes, it is a horrendous
-            amalgamation, but it is also a map. What does it actually show? Through its extremity, the perils and
-            positives of projections are revealed. Let's break it down.</p>
+          <p>Why is it important to be aware of these distortions? When aspects of a map are distorted, it can impact
+            how we perceive the data they convey. For example, if a choropleth map—a map that assigns colors based on
+            values of the data it is showing—uses a projection that distorts area, it could make it appear that a far
+            greater area of the map is at risk.
+
+          </p>
+
+          <p>
+            Or consider the dot-density visualization used by some of the covid examples above. When the dots represent
+            an absolute number, the spacing of the dots looks like relative density; if a map projection distorts area,
+            then two countries with the same value and same area could end up looking like they have different
+            frequencies.
+          </p>
         </div>
         <div class="step" data-step="4" data-color="pink" data-content="">
-          <p>Each “map monster” is generated based on a few specific parameters.</p>
-          <ul>
-            <li>
-              Story / data. At the heart of every thematic map is a story. How many people were born. Died. Are good at
-              reading. Got lost. Here, the different data sets are explored: access to abortion, climate change (as
-              measured by temperature) and gun control. If you upload your data in the appropriate format you can
-              explore it to.
+          <p>These are but a few of the examples of why it is important to be aware of map projections and to be a
+            conscientious map reader. How can you view maps with a critical eye? If a map has grid lines, you can lookat
+            the spacing of the horizontal and vertical lines for clues; if the space between the lines is growing
+            larger, the area would also be area overrepresented on the map.
+          </p>
 
-            </li>
-            <li>
-              Projections. There are hundreds of projections. Here we should the whole gambit. Why? Every projection
-              must distort one or more of distance, direction, shape, or area. Different types of projections are better
-              suited towards different things. Projections can be classified by projectable surface (cylinder, cone,
-              plane, others) . Projection properties. Light Source. Etc. Here the focus is on gaining a basic ‘feeling’
-              for what to look for when reading a map. If you want to learn the differences between __ and __ thats
-              great. But what we are aiming for here is the ability to look critically and consider the relationship
-              between the projection used and the impact that the story has.
-
-            </li>
-            <li>
-              Symbolization / visual variable encoding. How do we take our data and put it on the map? Color, dot
-              density, etc.
-            </li>
-          </ul>
         </div>
         <div class="step" data-step="#" data-color="blue">
           <p>
-
+            Just because a map projection distorts does not mean it is deceiving. After all, for a map to exist at all
+            it must ‘distort’ reality. All map projections have their strengths and weaknesses, and there is no ‘perfect
+            projection.’ A projection is not inherently good or bad; it depends on the context.  What is important is being aware of map projections and viewing maps with a critical, but open, eye. 
           </p>
-        </div>
-        <div class="step" data-step="5" data-color="green" data-content="">
-          <p>Finally, each “map” has a randomized number of projections. A normal map would have just one, of course. We
-            show additional projections to show contrast and allow comparison between the different distortions. The
-            projections are sampled based on the contrasting distortion principles; each projection is combined with
-            others that distort one of the other dimensions. </p>
-        </div>
-
-        <div class="step" data-step="6" data-color="white" data-content="">
-          <p>Combined, each ‘projection monster’ tells a different story. This different story is then reflected by the
-            accompanying title. For each data (remember, there are three) the text stays the same–after all, it is real
-            data– but the title reflects both the projections, and how the title doesn’t necessarily need to match what
-            is actually being shown. At the same time, some “monsters” show the opposite–how despite their differences
-            in distortion, there are continuities and truths that the map projections aren’t affecting. </p>
         </div>
 
       </article>
     </section>
 
     <section id="outro">
-
-
     </section>
     <section id="credits">
       <div>
@@ -248,7 +288,7 @@
             (https://github.com/jsoma/simplified-scrollama-scrollytelling/)</li>
           <li>Observable and Mike Bostock for Starting Code for the Projection visualizations</li>
           <li>UN Data: Access to Abortion and International Homicide Data </li>
-          <li>John Hopkins University: COVID Data</li>
+          <li>World Health Organization for COVID Data</li>
         </ul>
       </div>
     </section>

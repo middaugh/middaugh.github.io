@@ -27,3 +27,8 @@
     height: var(--sticky-size-small-height);    
     width: 100%;  
 }
+
+.no-show{
+    display: none !important; 
+    background-color: none; 
+}

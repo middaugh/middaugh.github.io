@@ -11,16 +11,19 @@
 }
 
 .break {
-    height: 300px; 
     padding: 0;
     max-width: 20rem;
-    margin: 0 auto;
+    margin-top: 25%;
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 0%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .break p{
+    
     text-align: center; 
     position: relative;
 }
@@ -35,7 +38,7 @@
     max-width: 40rem;
     margin: 1rem auto;
     margin-top: 40vh; 
-    margin-bottom: 105vh;
+    margin-bottom: 55vh;
     text-align: center;
   }
   
@@ -64,7 +67,7 @@
     font-size: 2rem;
     font-family: var(--header-font); 
     display: block; 
-    color: var(--primary-color); 
+    color: var(--light-color); 
     font-style: italic; 
   }
   
@@ -86,7 +89,7 @@
 
 #news-quotes{
   padding-bottom: 100px; 
-  background-image: linear-gradient(white, var(--light-color));
+  /*background-image: linear-gradient(white, var(--light-color));*/
 }
 .quote-block{
     position: relative;
@@ -100,7 +103,7 @@ figcaption{
   float: right; 
   margin-bottom: 100px; 
   white-space: no-wrap;
-  color: var(--secondary-color); 
+  color: var(--dark-color); 
 }
   
 

@@ -13,14 +13,14 @@
     --dark-color: #18314f;
     --primary-color:#384e77;
     --light-color: white; 
-    --accent-color: #878e88; 
+    --accent-color: #f4b9b2;; 
     --sticky-size-large-height: 80vh; 
     --sticky-size-small-height: 30vh; 
 
   }
 
 
-  .primary-color{
+.primary-color{
     color: var(--primary-color); 
 }
 
