@@ -5,6 +5,8 @@ body {
   min-height: 1280px;
   font-weight: 300; 
   font-size: 1.1rem; 
+  margin-left: 3%;
+  margin-right: 3%; 
 }
 
 
@@ -19,7 +21,7 @@ body {
 }
 
 body {
-  background-color: #878e88;
+  background-color: var(--bgcolor);
 }
 
 h1,

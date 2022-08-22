@@ -50,10 +50,16 @@
 
   .intro__dek{
     margin-top: 50px; 
+    font-size: 3rem; 
+    max-width: 650px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center; 
   }
   
   #outro {
-    height: 640px;
+    margin: 20%; 
+
   }
   
   @media (min-width: 840px) {
@@ -130,5 +136,5 @@ cite{
 }
 
 #credits p {
-  font-size: 12px; 
+  font-size: 14px; 
 }

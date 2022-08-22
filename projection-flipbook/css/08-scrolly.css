@@ -42,8 +42,6 @@ article {
 }
 
 
-
-
 .step:last-child {
   margin-bottom: 0;
 }
@@ -62,12 +60,11 @@ article {
 }
 
 .step p {
-  color: var(--primary-color);
   opacity: .5;
   text-align: justify;
   padding: 1rem;
   font-size: 1.2rem;
-  background-color: var(--secondary-color);
+  background-color: var(--bgcolor);
 }
 
 
@@ -83,7 +80,6 @@ article {
 
 #scrolly-side>* {
   font-family: var(--header-font);
-  color: var(--accent-color);
 }
 
 #scrolly-side>* {
