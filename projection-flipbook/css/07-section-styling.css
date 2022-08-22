@@ -12,15 +12,16 @@
 
 .break {
     padding: 0;
-    max-width: 20rem;
-    margin-top: 25%;
+    max-width: 40rem;
+    margin-top: 10%;
     margin-left: auto; 
     margin-right: auto; 
-    margin-bottom: 0%;
+    margin-bottom: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .break p{
     font-size: 3rem; 
@@ -38,13 +39,17 @@
   #intro {
     max-width: 40rem;
     margin: 1rem auto;
-    margin-top: 40vh; 
+    margin-top: 35vh; 
     margin-bottom: 55vh;
     text-align: center;
   }
   
   .intro__hed {
     margin: 2rem auto 0.5rem auto;
+  }
+
+  .intro__dek{
+    margin-top: 50px; 
   }
   
   #outro {
@@ -121,5 +126,9 @@ cite{
 }
 
 #credits{
-  padding: 100px; 
+  padding: 150px; 
+}
+
+#credits p {
+  font-size: 12px; 
 }

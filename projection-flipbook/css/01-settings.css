@@ -2,9 +2,9 @@
 :root {
     --side-space: 15vmin;
     --side-space--mobile: 5vmin;
-    --main-font:Georgia, "Roboto Thin", "Segoe UI", Helvetica, sans-serif;
-    --title-font: Georgia, "Courier New", monotype;
-    --header-font: Georgia, "Courier New", "Segoe UI", "Roboto", "Roboto Mono", sans-serif;
+    --main-font:'Cormorant Garamond', Georgia, Garamond, serif; 
+    --title-font: 'Cormorant Garamond', Georgia, Garamond, serif; 
+    --header-font: 'Cormorant Garamond', Georgia, Garamond, serif; 
     --font-size:  1em; 
     --line-height: 1.2;
     --bgcolor: #f8f8f8;

@@ -38,8 +38,10 @@ article {
 
 .step {
   padding: 25px;
-  margin: 0 auto 25rem auto;
+  margin: 0 auto 10rem auto;
 }
+
+
 
 
 .step:last-child {
@@ -115,4 +117,10 @@ article {
 
 #scrolly-side .step p{
   text-align: center; 
+  
+
+}
+
+#scrolly-side .step{
+  margin: 0 auto 25rem auto;
 }

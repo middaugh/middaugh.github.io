@@ -32,12 +32,6 @@ function ready(error, countries110m) {
 
 
 
-  
-
-
-  
-
-
   // Define Map Boundaries
   let countries = topojson.feature(countries110m, countries110m.objects.countries);
   countries.features = countries.features.filter(feature => feature.properties.name !== 'Fiji'); // Remove because of problems with Clipping
@@ -163,9 +157,6 @@ function ready(error, countries110m) {
     transitionSection(bottomCanvas, projectionRotations[2].bottom, -80, -30, duration)
   }
 
-
-
-
   function fullRotation(projectionsListString, currentDataString, vizTypeString) {
     // get projections from passed parameters, set globally
     var projectionsList = projectionsListString.split("-")
@@ -269,7 +260,7 @@ function ready(error, countries110m) {
       var vizTypeString = el.dataset.viztype
       var projectionsListString = el.dataset.projections
 
-      d3.timeout(fullRotation(projectionsListString, currentDataString, vizTypeString), duration * 8);
+      d3.timeout(fullRotation(projectionsListString, currentDataString, vizTypeString), duration * 7);
 
     }
     else {

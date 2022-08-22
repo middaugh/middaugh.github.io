@@ -7,14 +7,17 @@
   <title>The Projection Flipbook: Visualizing the Map Projection Distortion in Context</title>
   <meta name="description" content="Beyond the Peel: Visualizing the Map Projection Distortion in Context" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/01-settings.css" />
   <link rel="stylesheet" href="./css/02-normalize.css" />
   <link rel="stylesheet" href="./css/03-reset.css" />
   <link rel="stylesheet" href="./css/04-general.css" />
   <link rel="stylesheet" href="./css/07-section-styling.css" />
   <link rel="stylesheet" href="./css/08-scrolly.css" />
-  <link rel="stylesheet" href="./css/08-scrolly-side.css" />
   <link rel="stylesheet" href="./css/style.css" />
+
 </head>
 
 <!-- <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script> -->
@@ -50,10 +53,6 @@
 
     <section id="intro">
       <h1 class="intro__hed primary-color">The Projection Flipbook</h1>
-      <p class="intro__dek light-color" style="margin-top: 20px">
-        The truth is not distorted here, but rather a distortion is used to get at truth.
-      <figcaption><cite style="color: white;">&mdash;Flannery O'Connor</cite></figcaption>
-
       </p>
     </section>
 
@@ -149,10 +148,19 @@
     </script>
 
 
+
+
+
+<section class="break">
+  <p class="intro__dek primary-color">
+    The truth is not distorted here, but rather a distortion is used to get at truth.
+  <figcaption><cite class="light-color">&mdash;Flannery O'Connor</cite></figcaption>
+  
+</section>
+
     <section id="scrolly-side">
       <div id="projectionFlipbook" class="sticky-thing map-monster sticky-size-large">
-
-
+        
         <div id="container">
           <div id="topContainer" class="parent">
             <canvas id="top" class="top"></canvas>
@@ -167,13 +175,10 @@
             <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
           </div>
         </div>
-
-
+      
       </div>
       <article>
-        <div class="step hide" data-display="hide">
-          <p style="display:none;"></p>
-        </div>
+      
         <div class="step" data-display="show" ,
           data-projections="d3.geoRobinsonRaw-d3.geoMercatorRaw-d3.geoSinusoidalRaw" data-data="abortion"
           data-viztype="choropleth" data-color="grey" , data-content="">
@@ -203,7 +208,7 @@
           data-data="abortion" data-viztype="choropleth">
           <p>The Baker-Eckert-Mercator projection casts light on the reproductive rights situation for what it is</p>
         </div>
-        <div class="step" data-display="hide">
+        <div class="step hide" data-display="hide">
           <p style="display:none;"></p>
         </div>
       </article>
@@ -230,18 +235,12 @@
         </div>
         <div class="step" data-step="1" data-color="blue">
           <p>
-            Remember the quotes at the beginning? Are they true? Technically yes–every map must distort in some way or
+            Remember the quotes at the beginning? Are they true? Technically yes-–every map must distort in some way or
             another. However, they suggest that map projections are purposefully misleading.
           </p>
         </div>
         <div class="step" data-step="2" data-color="var(--primary-color)">
-          <p>In The Projection Flipbook, each section of the map is a different map projection. Some projections Each
-            map shows real-life data–in this case, COVID and access to abortion data– referenced in the titles at right.
-            The circles that are overlaid on top of the maps are called Tissot’s Indicatrix. These indicatrices show the
-            distortion of the shape and area at that particular point. In The Projection Flipbook, the side-by-side
-            placement of different projections with their indicatrices shows just how much variation there is between
-            different map projections. By coupling outlandish maps with titles claim accuracy, The Projection Flipbook
-            pokes fun at the idea that there could be one way that would truly accurately portray said data. </p>
+          <p>In <span class="tpf">The Projection Flipbook</span>, each section of the map is a different map projectio that distorts differently. Each map shows real-life data–in this case, COVID and access to abortion data– referenced in the titles at right. The circles that are overlaid on top of the maps are called Tissot’s Indicatrix. These indicatrices show the distortion of the shape and area at that particular point. In <span class="tpf">The Projection Flipbook</span>, the side-by-side placement of different projections with their indicatrices shows just how much variation there is between different map projections. By coupling outlandish maps with titles claim accuracy, <span class="tpf">The Projection Flipbook</span> pokes fun at the idea that there could be one way that would truly accurately portray said data. </p>
         </div>
         <div class="step" data-step="3" data-color="var(--secondary-color)" data-content="">
           <p>Why is it important to be aware of these distortions? When aspects of a map are distorted, it can impact
@@ -260,7 +259,7 @@
         </div>
         <div class="step" data-step="4" data-color="pink" data-content="">
           <p>These are but a few of the examples of why it is important to be aware of map projections and to be a
-            conscientious map reader. How can you view maps with a critical eye? If a map has grid lines, you can lookat
+            conscientious map reader. How can you view maps with a critical eye? If a map has grid lines, you can look at
             the spacing of the horizontal and vertical lines for clues; if the space between the lines is growing
             larger, the area would also be area overrepresented on the map.
           </p>
@@ -270,7 +269,8 @@
           <p>
             Just because a map projection distorts does not mean it is deceiving. After all, for a map to exist at all
             it must ‘distort’ reality. All map projections have their strengths and weaknesses, and there is no ‘perfect
-            projection.’ A projection is not inherently good or bad; it depends on the context.  What is important is being aware of map projections and viewing maps with a critical, but open, eye. 
+            projection.’ A projection is not inherently good or bad; it depends on the context. What is important is
+            being aware of map projections and viewing maps with a critical, but open, eye.
           </p>
         </div>
 
@@ -279,18 +279,11 @@
 
     <section id="outro">
     </section>
-    <section id="credits">
-      <div>
-        Credits
-        <ul>
-          <li>go to Russel Goldberg for the Scrollama JavaScript Library.</li>
-          <li> Base Template used for Starting this project was forked from Jonathon Soma
-            (https://github.com/jsoma/simplified-scrollama-scrollytelling/)</li>
-          <li>Observable and Mike Bostock for Starting Code for the Projection visualizations</li>
-          <li>UN Data: Access to Abortion and International Homicide Data </li>
-          <li>World Health Organization for COVID Data</li>
-        </ul>
-      </div>
+    <section id="credits" class="primary-color">
+      <p>
+        <b>Credits</b> Created by Esmé Middaugh. Scrollytelling from Russel Goldberg's Scrollama JavaScript Library, with base template forked from <a href="https://github.com/jsoma/simplified-scrollama-scrollytelling/">Jonathon Soma</a>. Observable and Mike Bostock for starting code of projection visualizations and transitions. Tissot Indicatrix from <a href="https://github.com/ncxiao">ncxiao</a> Abortion data comes from the WHO and information on access to abortion comes from the <a href="https://reproductiverights.org/wp-content/uploads/2021/12/WALM_2021update_V1.pdf">ReproductiveRights.org</a> . 
+       
+      </p>
     </section>
   </main>
 
