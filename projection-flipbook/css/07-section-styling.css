@@ -34,8 +34,6 @@
     max-width: 60rem; 
 }
 
-
-  
   #intro {
     max-width: 40rem;
     margin: 1rem auto;
@@ -127,8 +125,11 @@ cite{
   
 
 
-.break.after{
-  background-image: linear-gradient( var(--dark-color, white));
+
+.vertical-break{
+  writing-mode: vertical-rl; 
+  text-orientation: upright;
+  font-size: 3.3rem; 
 }
 
 #credits{
