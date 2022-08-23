@@ -30,8 +30,6 @@ function ready(error, countries110m) {
 
   if (error) throw error;
 
-
-
   // Define Map Boundaries
   let countries = topojson.feature(countries110m, countries110m.objects.countries);
   countries.features = countries.features.filter(feature => feature.properties.name !== 'Fiji'); // Remove because of problems with Clipping
@@ -64,65 +62,44 @@ function ready(error, countries110m) {
     var context = canvas.getContext('2d');
     var canvasId = canvas.id;
 
-
     var path = sizeScaleSection(canvas, projection, minLat, maxLat);
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
 
     var firstTime = true;
 
-    //path = sizeScaleSection(canvas, projection, minLat, maxLat);
-    //context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
-
-    //makeDotDensity(context, projection, minLat, maxLat, features, currentData) 
-
     timer = d3.timer((elapsed) => {
       // compute how far through the animation we are (0 to 1)
       const t = Math.min(1, ease(elapsed / (duration - 500))); // make a little less than duration so time to create viz at end
 
+      
       if (t < 1) {
         path = sizeScaleSection(canvas, projection.alpha(t), minLat, maxLat);
         context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
       }
 
-      // if this animation is over
-
-
+      // when time to stop animating
       if (t == 1) {
-        // stop this timer since we are done animating.
-        //currentPath = sizeScaleSection(canvas, projection.alpha(1), minLat, maxLat);
-        // CHOROPLETH
 
         if (firstTime) {
-
+          
+          // CHOROPLETH
           if (vizType == 'choropleth') {
             makeChoropleth(context, path, countries, currentData);
-            //firstTime = false;
           }
 
           // DOT DENSITY
           if (vizType == 'dotDensity') {
             makeDotDensity(context, projection, minLat, maxLat, countries, currentData)
-            //firstTime = false;
-            //makeTissot(context, path);
             
           }
 
           makeTissot(context, path);
           firstTime = false;
-
-          
-
         }
 
       }
     });
-
-
-
-    //
-
-
 
   }
 
@@ -134,13 +111,11 @@ function ready(error, countries110m) {
   // d3.geoWinkel3Raw-d3.geoEckert4Raw-d3.geoMercatorRaw; 
 
 
-  // modify to take additional argument
   function roundOne() {
     console.log('round one')
     transitionSection(topCanvas, projectionRotations[0].top, 30, 85, duration)
     transitionSection(middleCanvas, projectionRotations[0].middle, -30, 30, duration)
     transitionSection(bottomCanvas, projectionRotations[0].bottom, -80, -30, duration)
-    //makeDotDensity(context, projection.alpha(1), minLat, maxLat, features, covidDeaths)
   };
 
   function roundTwo() {
@@ -164,7 +139,7 @@ function ready(error, countries110m) {
     rawProjection1 = eval(projectionsList[1])
     rawProjection2 = eval(projectionsList[2])
 
-    // get visualization type and data from the passed parameters, set globally
+    // get visualization type and data from the passed parameters and set globally
     currentData = eval(currentDataString);
     vizType = vizTypeString.replace(/(\r\n|\n|\r)/gm, ""); // clean the string
 
@@ -221,11 +196,6 @@ function ready(error, countries110m) {
     steps.forEach(step => step.classList.remove('is-active'));
     el.classList.add('is-active');
 
-    // update graphic based on step
-    //sticky.querySelector("p").innerText = `Step number is ${el.dataset.step}`;
-    //sticky.style.backgroundColor = el.dataset.color;
-    //sticky.querySelector("p").style.fontSize = `${el.dataset.step}rem`;
-
   }
 
 
@@ -247,14 +217,7 @@ function ready(error, countries110m) {
     steps.forEach(step => step.classList.remove('is-active'));
     el.classList.add('is-active');
 
-    // update graphic based on step
-    //el.innerText = `Step number is ${el.dataset.step}`;
-    testTitle = 'mercator-robinson'
-    //el.innerText = `See How the ` + testTitle + `FINALLY reveals the actual Data name`;
-    //sticky.style.backgroundColor = el.dataset.color;
-    //sticky.querySelector("p").innerText = `${el.dataset.step}rem`;
-    //createFlipbook(el.dataset.step) // EVENTUALLY SWAP TO flipbookparameters
-
+    // update global projection flipbook variables based on the step 
     if (el.dataset.display == 'show') {
       var currentDataString = el.dataset.data
       var vizTypeString = el.dataset.viztype
