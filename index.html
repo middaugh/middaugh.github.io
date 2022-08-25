@@ -1,306 +1,61 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>The Projection Flipbook: Visualizing the Map Projection Distortion in Context</title>
-  <meta name="description" content="Beyond the Peel: Visualizing the Map Projection Distortion in Context" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./css/01-settings.css" />
-  <link rel="stylesheet" href="./css/02-normalize.css" />
-  <link rel="stylesheet" href="./css/03-reset.css" />
-  <link rel="stylesheet" href="./css/04-general.css" />
-  <link rel="stylesheet" href="./css/07-section-styling.css" />
-  <link rel="stylesheet" href="./css/08-scrolly.css" />
-  <link rel="stylesheet" href="./css/style.css" />
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Esm&eacute; Middaugh</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Karla|Roboto|Open+Sans|Lato" rel="stylesheet">
+    <!-- Font Pairings to Try:Header Roboto Mono (camel Case) and body Lato Light-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
-
-<!-- <script src="https://d3js.org/d3.v7.min.js" charset="utf-8"></script> -->
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-geo@1"></script>
-<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-<script src="https://unpkg.com/d3-geo-polygon@1"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-ease@3"></script>
-<script src="scripts/base-flipbook-functions.js"></script>
-<script src="scripts/dot-density.js"></script>
-<script src="scripts/choropleth.js"></script>
-<script src="scripts/tissot.js"></script>
-
-<style>
-  .parent {
-    position: relative;
-    display: block;
-    margin-bottom: 8px;
-    width: 800px;
-    height: 700px;
-  }
-</style>
-
 <body>
-  <main>
-    <!-- INTRO -->
-    <section id="intro">
-      <h1 class="intro__hed accent-color">The Projection Flipbook</h1>
-      </p>
-    </section>
+    <div class="container-fluid" style="float: none; margin: 0 auto;">
+        <div class="row-fluid header">
 
+            <div class="col-xs-12 align-center"/>
+                <h1><a href="index.html" class="name">Esm&eacute; Middaugh</a></h1>
 
-    <section id="disorted" class="secondary-color">
-    </section>
-
-    <!-- NEWS QUOTES SECTION -->
-    <section id="news-quotes" class="">
-
-      <div class="quote-block">
-        <blockquote>
-          Maps Have Been Lying To You Your Entire Life
-        </blockquote>
-        <figcaption><cite>&mdash;IFLifeScience</cite></figcaption>
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          The world map you know and love? It's been lying to you.
-        </blockquote>
-        <figcaption><cite>&mdash;Vox</cite></figcaption>
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          Your Map Is Lying to You
-        </blockquote>
-        <figcaption><cite>&mdash;Outside</cite></figcaption>
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          Maps have been lying to you all your life. Yes, even Google Maps
-        </blockquote>
-        <figcaption> <cite>&mdash;AbcNews</cite></figcaption>
-
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          Why all world maps are wrong
-        </blockquote>
-        <figcaption> <cite>&#8288;&mdash;Vox&#8288;</cite></figcaption>
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          Why every world map you're looking at is WRONG
-        </blockquote>
-        <figcaption> <cite>&mdash;Daily Mail</cite></figcaption>
-      </div>
-
-      <div class="quote-block">
-        <blockquote>
-          <!-- https://gisgeography.com/map-projections/-->
-          What are Map Projections? (And Why They Are Deceiving To Us)
-        </blockquote>
-        <figcaption> <cite>&mdash;GISGeography</cite></figcaption>
-      </div>
-    </section>
-
-    <script>
-      // modified from http://jsfiddle.net/tiffhockin/fesvq8u0/
-
-      // get window width and height
-      var winWidth = window.innerWidth;
-      var winHeight = window.innerHeight;
-
-      let margin = 100;
-      // set width and height of containing element to full screen minus margin
-      var containingDiv = document.getElementById('news-quotes');
-
-
-      // collect all the divs
-      var divs = document.getElementsByClassName('quote-block');
-
-      for (var i = 0; i < divs.length; i++) {
-
-        // shortcut! the current div in the list
-        var thisDiv = divs[i];
-
-        randomLeft = getRandomNumber(0, winWidth - 600);
-        thisDiv.style.left = randomLeft + "px";
-
-      }
-
-      // function that returns a random number between a min and max
-      function getRandomNumber(min, max) {
-        return Math.random() * (max - min) + min;
-      }
-
-    </script>
-
-
-    <section class="break">
-      <p><span class="accent-color vertical-break">?</span> </p>
-    </section>
-    <!-- THE PROJECTION FLIPBOOK -->
-    <section id="scrolly-side">
-      <div id="projectionFlipbook" class="sticky-thing map-monster sticky-size-large">
-
-        <div id="container">
-          <div id="topContainer" class="parent">
-            <canvas id="top" class="top"></canvas>
-            <canvas id="topHidden" class="top-hidden hidden"></canvas>
-          </div>
-          <div id="middleContainer" class="parent">
-            <canvas id="middle" class="middle"></canvas>
-            <canvas id="middleHidden" class="middle-hidden hidden"></canvas>
-          </div>
-          <div id="bottomContainer" class="parent">
-            <canvas id="bottom" class="bottom"></canvas>
-            <canvas id="bottomHidden" class="bottom-hidden hidden"></canvas>
-          </div>
-        </div>
-
-      </div>
-      <article>
-
-        <div class="step" data-display="show" ,
-          data-projections="d3.geoRobinsonRaw-d3.geoMercatorRaw-d3.geoSinusoidalRaw" data-data="abortion"
-          data-viztype="choropleth" data-color="grey" , data-content="">
-          <p>Robinson-Mercator-Sinusoidal Map Finally Paints Accurate Picture of Reproductive Rights Around the Globe
-          </p>
-        </div>
-        <div class="step" data-display="show" ,
-          data-projections="d3.geoMercatorRaw-d3.geoEquirectangularRaw-d3.geoBakerRaw" data-data="covidDeaths"
-          data-viztype="dotDensity">
-          <p>Mercator-Equirectangular-Baker Projection Shows actual COVID-19 Mortality</p>
-        </div>
-        <div class="step" data-display="show" , data-projections="d3.geoMillerRaw-d3.geoEckert4Raw-d3.geoMollweideRaw"
-          data-data="abortion" data-viztype="choropleth">
-          <p>See how access to Abortion Rights ACTUALLY stack up on this Miller-Eckert-Mollweide map </p>
-        </div>
-        <div class="step" data-display="show" ,
-          data-projections="d3.geoSinusoidalRaw-d3.geoMollweideRaw-d3.geoEquirectangularRaw" data-data="covidCases"
-          data-viztype="dotDensity">
-          <p>COVID-19 Cases Distribution looks vastly different when viewed with Sinusoidal-Mollweide-Equirectangular
-            Projection </p>
-        </div>
-        <div class="step" data-display="show" , data-projections="d3.geoCollignonRaw-d3.geoMillerRaw-d3.geoRobinsonRaw"
-          data-data="covidDeathsDensity" data-viztype="choropleth">
-          <p>Collignon-Miller-Robinson finally shows COVID Death Toll Accurately </p>
-        </div>
-        <div class="step" data-display="show" , data-projections="d3.geoBakerRaw-d3.geoEckert4Raw-d3.geoMercatorRaw"
-          data-data="abortion" data-viztype="choropleth">
-          <p>The Baker-Eckert-Mercator projection casts light on the reproductive rights situation for what it is</p>
-        </div>
-        <div class="step hide" data-display="hide">
-          <p style="display:none;"></p>
-        </div>
-      </article>
-    </section>
-
-    <!-- EXPLANATION-->
-    <section class="break">
-      <p><span class="accent-color vertical-break">confused? </span> </p>
-    </section>
-    <section id="scrolly">
-      <div class="sticky-thing map-monster sticky-size-large">
-      </div>
-
-      <article class="wide">
-        <div class="step" data-step="0" data-color="grey" , data-content="">
-          <p>Let’s start at the beginning. </p>
-          <p>
-            Every day we look at maps. The creation of every map involves choices. One of these
-            choices is how to flatten the earth, how to project points from a round globe onto a flat plane. Every map
-            projection&mdash;yes, every&mdash;map projection must distort one or more of direction, distance, area, or
-            shape.
-          </p>
-        </div>
-        <div class="step" data-step="1" data-color="blue">
-          <p>
-            Remember the quotes at the beginning? Are they true? Technically, yes&mdash;every map must distort in some
-            way or
-            another. However, they suggest that map projections are purposefully misleading.
-          </p>
-        </div>
-        <div class="step" data-step="2" data-color="var(--primary-color)">
-          <p>In <span class="tpf">The Projection Flipbook</span>, each section of the map is a different map projection
-            that distorts differently. Each map shows real-life data–in this case, COVID and access to abortion data,
-            referenced in the titles at right. The circles that are overlaid on top of the maps are called Tissot’s
-            Indicatrix. These indicatrices show the distortion of the shape and area at that particular point. In <span
-              class="tpf">The Projection Flipbook</span>, the side-by-side placement of different projections with their
-            indicatrices shows just how much variation there is between different map projections. By coupling
-            outlandish maps with titles that claim accuracy, <span class="tpf">The Projection Flipbook</span> pokes fun at
-            the idea that there could be one way that would truly accurately portray said data. </p>
-        </div>
-        <div class="step" data-step="3" data-color="var(--secondary-color)" data-content="">
-          <p>Why is it important to be aware of these distortions? When aspects of a map are distorted, it can impact
-            how we perceive the data they convey. For example, if a choropleth map&mdash;a map that assigns colors based on
-            values of the data it is showing&mdash;uses a projection that distorts area, it could make it appear that a far
-            greater area of the map is at risk.
-
-          </p>
-
-          <p>
-            Or consider the dot-density visualization used by some of the COVID-19 examples above. When the dots
-            represent an absolute number, as they do here, the spacing of the dots looks like relative density. If a map
-            projection distorts area, then two countries with the same value and same area could end up looking like they have different
-            frequencies.
-          </p>
-        </div>
-        <div class="step" data-step="4" data-color="pink" data-content="">
-          <p>These are but a few of the examples of why it is important to be aware of map projections and to be a
-            conscientious map reader. How can you view maps with a critical eye? If a map has grid lines, you can look
-            at the spacing of the horizontal and vertical lines for clues; if the space between the lines is growing
-            larger, the area would also be overrepresented on the map.
-          </p>
+            </div>
+            <div class="col-xs-12 align-center " id="nav"/>
+                <a href="contact.html" class="align-right">Contact</a>&emsp;
+                <a href="index.html" class="align-right selected">Projects</a>&emsp;
+                <a href="https://middaugh.github.io/resume" class="align-right">Resume</a>
+            </div>
 
         </div>
-        <div class="step" data-step="#" data-color="blue">
-          <p>
-            That a map projection distorts does not mean it deceives. For a map to exist at all
-            it must ‘distort’ reality. All map projections have their strengths and weaknesses, and there is no ‘perfect
-            projection.’ Remeber, a projection is not inherently good or bad; it depends on the context. What is important is
-            being aware of map projections and viewing maps with a critical, but open, eye.
-          </p>
+        <div class="main">
+            <div class="row-fluid">
+                    <div class="col-md-4 col-sm-6 col-xs-12" > <a href="https://middaugh.github.io/visualizing-design/scatter.html" class="example" target="_blank"><img src="images/cooper_hewitt_thumbnail.jpg" alt="Screenshot of Cooper Hewitt Poster Visualization" /></a> </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="https://searching-for-the-essentials.herokuapp.com/" class="example" target="_blank"><img src="images/searching-for-the-essentials-thumbnail.png" alt="Searching for the Essentials" /></a></div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="images/sdg_women.pdf" class="example" target="_blank"><img src="images/sdg_women_thumbnail.png" alt="Sustainable Development Goals for Women"/></a></div>
+
+                </div>
+                <div class="row-fluid">
+
+
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="Final_Project_STATS670_middaugh.pdf" class="example" target="_blank"><img src="images/final_project_STATS670_thumbnail.png" alt="Graph of Liklihood of Heroin Use" /></a></div>
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="images/womenInCongress.pdf" class="example" target="_blank"><img src="images/congress_thumbnail.jpg" alt="Women in Congress"/></a></div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="mini_project_1_STATS670_middaugh_V3.pdf" class="example" target="_blank"><img src="images/eda_thumbnail.jpg" alt="Graph of World Life Expectancy" /></a></div>
+
+            </div>
+            <div class="row-fluid">
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 example" > <a href="opioid_handout.pdf" class="example" target="_blank"><img src="images/opioid_handout_thumbnail.png" alt="Opioid Handout Infographic"  /></a> </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12" > <a href="honorsThesis.html" class="example" target="_blank"><img src="images/thesis_thumbnail.jpg" alt="Screenshot of Honors Thesis Website" /></a> </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12" ><a href="images/tia.jpg" class="example" target="_blank"><img src="images/tia_thumbnail.png" alt="TIA Public Trans"/></a></div>
+            </div>
         </div>
-
-      </article>
-    </section>
-
-    <section id="outro">
-      <p class="intro__dek accent-color">
-        The truth is not distorted here, but rather a distortion is used to get at truth.<span
-          style="font-display: italic; font-size:1.2rem;" class="light-color">&emsp;&mdash;Flannery O'Connor</span>
-    </section>
-    <section id="credits" class="light-color">
-      <p>
-        Created by Esmé Middaugh. Scrollytelling from Russel Goldberg's Scrollama JavaScript Library, with base template
-        forked from <a href="https://github.com/jsoma/simplified-scrollama-scrollytelling/">Jonathon Soma</a>. <a
-          href="https://observablehq.com/@d3/orthographic-to-equirectangular">Observable and Mike Bostock</a>Observable
-        and Mike Bostock for starting code of mapping, projection visualizations, and transitions. Andrew Woodruff's
-        approach to <a href="http://bl.ocks.org/awoodruff/94dc6fc7038eba690f43">dot density mapping with canvas</a>.
-        Tissot Indicatrix TopoJSON from <a href="https://github.com/ncxiao">ncxiao</a>. COVID-19 data comes from the <a
-          href="https://covid19.who.int/data">World Health Organization</a> and information on access to abortion comes
-        from the <a
-          href="https://reproductiverights.org/wp-content/uploads/2021/12/WALM_2021update_V1.pdf">ReproductiveRights.org</a>.
-
-      </p>
-    </section>
-  </main>
-
-  <!-- <div class='debug'></div> -->
-  <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-  <script src="https://unpkg.com/scrollama"></script>
-  <script src="index.js"></script> <!-- Map Projection Rotation -->
+    </div>
 
 </body>
-
 </html>
