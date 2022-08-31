@@ -68,9 +68,11 @@ function ready(error, countries110m) {
 
     var firstTime = true;
 
+    d3.timerFlush();
+
     timer = d3.timer((elapsed) => {
       // compute how far through the animation we are (0 to 1)
-      const t = Math.min(1, ease(elapsed / (duration - 500))); // make a little less than duration so time to create viz at end
+      const t = Math.min(1, ease(elapsed / (duration - 1300))); // make a little less than duration so time to create viz at end
 
       
       if (t < 1) {
@@ -163,9 +165,10 @@ function ready(error, countries110m) {
       }
     ]
 
-    d3.timeout(roundOne, duration,)
-    d3.timeout(roundTwo, duration, duration + duration * .7 );
-    d3.timeout(roundThree, duration + 50, duration + duration + (duration * .5) * 2);
+
+    d3.timeout(roundOne, duration); 
+    d3.timeout(roundTwo, duration, duration + duration * .8 );
+    d3.timeout(roundThree, duration + 50, duration + duration + (duration * .6) * 2);
   }
 
 
