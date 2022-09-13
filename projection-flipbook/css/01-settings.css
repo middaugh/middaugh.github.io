@@ -1,7 +1,6 @@
 /****** Alter as Need Be *********/
 :root {
     --side-space: 15vmin;
-    --side-space--mobile: 5vmin;
     --main-font:'Cormorant Garamond', Georgia, Garamond, serif; 
     --title-font: 'Cormorant Garamond', Georgia, Garamond, serif; 
     --header-font: 'Cormorant Garamond', Georgia, Garamond, serif; 
@@ -16,7 +15,6 @@
     --accent-color: #d72638;; 
     --sticky-size-large-height: 80vh; 
     --sticky-size-small-height: 30vh; 
-
   }
 
 

@@ -57,16 +57,7 @@
   
   #outro {
     margin: 20%; 
-
   }
-  
-  @media (min-width: 840px) {
-    .nav__examples {
-      margin-top: 0;
-      margin-left: 2rem;
-    }
-  }
-  
   
   /*  Block Quotes */
   

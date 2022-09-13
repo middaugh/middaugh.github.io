@@ -1,6 +1,7 @@
 @import "01-settings.css";
 
 body {
+  background-color: var(--bgcolor);
   font-family: var(--main-font); 
   min-height: 1280px;
   font-weight: 300; 
@@ -20,10 +21,6 @@ body {
   padding: 0;
 }
 
-body {
-  background-color: var(--bgcolor);
-}
-
 h1,
 h2,
 h3,
@@ -34,12 +31,12 @@ h5 {
   margin-bottom: 10px;
 }
 
-p {
-  font-size: var(--font-size);
-}
-
 h1 {
   font-size: 5.5rem;
+}
+
+p {
+  font-size: var(--font-size);
 }
 
 
@@ -47,7 +44,6 @@ h1 {
 * {
   box-sizing: border-box;
 }
-
 
 a,
 a:visited,

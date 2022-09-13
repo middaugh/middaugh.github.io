@@ -95,7 +95,7 @@ function ready(error, countries110m) {
             makeDotDensity(context, projection, minLat, maxLat, countries, currentData)
             
           }
-
+          // ADD TISSOT's INDICATRICES
           makeTissot(context, path);
           firstTime = false;
         }
@@ -105,37 +105,26 @@ function ready(error, countries110m) {
 
   }
 
-  // d3.geoRobinsonRaw-d3.geoEquirectangularRaw-d3.geoSinusoidalRaw; 
-  // d3.geoMercatorRaw-d3.geoEquirectangularRaw-d3.geoWinkel3Raw; 
-  // d3.geoMillerRaw-d3.geoEckert4Raw-d3.geoMollweideRaw; 
-  // d3.geoSinusoidalRaw-d3.geoMollweideRaw-d3.geoEquirectangularRaw; 
-  // d3.geoMollweideRaw-d3.geoMillerRaw-d3.geoRobinsonRaw; 
-  // d3.geoWinkel3Raw-d3.geoEckert4Raw-d3.geoMercatorRaw; 
-
-
   function roundOne() {
-    console.log('round one')
     transitionSection(topCanvas, projectionRotations[0].top, 30, 85, duration)
     transitionSection(middleCanvas, projectionRotations[0].middle, -30, 30, duration)
     transitionSection(bottomCanvas, projectionRotations[0].bottom, -80, -30, duration)
   };
 
   function roundTwo() {
-    console.log('round two')
     transitionSection(topCanvas, projectionRotations[1].top, 30, 85, duration)
     transitionSection(middleCanvas, projectionRotations[1].middle, -30, 30, duration)
     transitionSection(bottomCanvas, projectionRotations[1].bottom, -80, -30, duration)
   }
 
   function roundThree() {
-    console.log('round three')
     transitionSection(topCanvas, projectionRotations[2].top, 30, 85, duration)
     transitionSection(middleCanvas, projectionRotations[2].middle, -30, 30, duration)
     transitionSection(bottomCanvas, projectionRotations[2].bottom, -80, -30, duration)
   }
 
   function fullRotation(projectionsListString, currentDataString, vizTypeString) {
-    // get projections from passed parameters, set globally
+    // get projections from passed parameters, set globally 
     var projectionsList = projectionsListString.split("-")
     rawProjection0 = eval(projectionsList[0])
     rawProjection1 = eval(projectionsList[1])
@@ -143,7 +132,7 @@ function ready(error, countries110m) {
 
     // get visualization type and data from the passed parameters and set globally
     currentData = eval(currentDataString);
-    vizType = vizTypeString.replace(/(\r\n|\n|\r)/gm, ""); // clean the string
+    vizType = vizTypeString.replace(/(\r\n|\n|\r)/gm, ""); // clean the string just in case
 
     projectionRotations = [
       {
@@ -165,7 +154,7 @@ function ready(error, countries110m) {
       }
     ]
 
-
+    // timing for how long each should go, can be adjusted
     d3.timeout(roundOne, duration); 
     d3.timeout(roundTwo, duration, duration + duration * .8 );
     d3.timeout(roundThree, duration + 50, duration + duration + (duration * .6) * 2);
@@ -173,7 +162,7 @@ function ready(error, countries110m) {
 
 
   //////////////////////
-  // Scrollama Section
+  // Scrollama Section, adjusted from tutorial
   ////////////////////////
 
   var main = document.querySelector("main");
@@ -233,19 +222,10 @@ function ready(error, countries110m) {
 
     }
 
-
-
-    // MAKE THE transition
-    //fullRotation()
-    //fullRotation(el.dataset.step)
-    //sticky.querySelector("p").innerText = 
-    // Getting back the name from the projection
   }
 
   function init() {
-    // 2. setup the scroller passing options
-    // 		this will also initialize trigger observations
-    // 3. bind scrollama event handlers (this can be chained like below)
+    // setup the scroller, initialize trigger, bind scrollama 
     scroller
       .setup({
         step: "#scrolly article .step",
@@ -267,7 +247,7 @@ function ready(error, countries110m) {
     window.addEventListener("resize", scroller.resize);
   }
 
-  // kick things off
+  // start
   init();
 
 
