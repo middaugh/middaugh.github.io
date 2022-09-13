@@ -1,5 +1,5 @@
 function scaleDensityMapping(data) {
-
+    // This function ensures that there will never be too many dots drawn; it scales all inputs to be between 0 and 1000 dots per country
     var scaledData = []
 
     function convertRange(value, r1, r2) {
@@ -20,7 +20,7 @@ function scaleDensityMapping(data) {
 
 
 function createDensitySetup(context, projection, minLat, maxLat) {
-
+    // Finds the regular and hidden contexts / canvases 
     var canvas = context.canvas
     var canvasId = context.canvas.id
     var parentContainer = document.getElementById(canvasId).parentElement
@@ -49,7 +49,7 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, countries, de
     document.getElementById(baseContext.canvas.id + `Container`).style.height = baseContext.canvas.height + `px`;
     hiddenContext.canvas.height = baseContext.canvas.height;
 
-    //baseContext.clearRect(0, 0, baseContext.canvas.width, baseContext.canvas.height);
+    // Draw the Country Paths in White
     baseContext.beginPath(), baseContext.strokeStyle = "#fff", path(countries), baseContext.stroke();
     baseContext.save();
     features.forEach(function (d, i) {
@@ -67,13 +67,11 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, countries, de
     }
     )
 
-
-    // pixel data for the whole polygon map. we'll use color for point-in-polygon tests.
+    // pixel data for the whole polygon map. Using color for checking if the point is in the polygon
     var imageData = hiddenContext.getImageData(0, 0, hiddenContext.canvas.width, hiddenContext.canvas.height);
 
-
-    // Draw the Dots  -- TAKEN FROM THE DOT DENSITY BOSTON BLOCK
     features.forEach(function (d, i) {
+        // Taken Directly from Andrew Woodruff's, Dot Density Block, http://bl.ocks.org/awoodruff/94dc6fc7038eba690f43
         // check that the country id exists in the dataset
         var r = parseInt(i / 256),
             g = i % 256;
@@ -82,13 +80,11 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, countries, de
         // Find the value if the country exists in the dataset; if it doesn't set the value to zero 
 
         if (countryId in densityValues) {
-            var pop = densityValues[countryId]; // TODO Fix me 
+            var pop = densityValues[countryId]; 
         }
         else {
             var pop = 0;
         }
-
-        
 
         var bounds = pathHidden.bounds(features[i]),
             x0 = bounds[0][0],
@@ -125,7 +121,7 @@ function drawDensity(baseContext, hiddenContext, path, pathHidden, countries, de
         return imageData.data[index + 0] == r && imageData.data[index + 1] == g;
     }
 
-    // 
+    // modified to make the 'a' value more understandable
     function drawPixel(x, y, rgbaString) {
         baseContext.fillStyle = rgbaString
         baseContext.fillRect(x, y, 2, 2);

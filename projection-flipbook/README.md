@@ -1,9 +1,14 @@
 # The Projection Flipbook
 
-This repository holds the files for The Projection Flipbook.
+This repository holds the files for The Projection Flipbook. A brief explanation of what is what is below:
 
-- Scripts for the creation of the components of the Flipbook
-- index.html which combines the components of the flipbook with text
+- index.html: Main page that displays The Projection Flipbook
+- index.js: Interacts and contains the Scrollama code 
+- base-flipbook-functions.js: Contains all of the essential functions for scaling the size of the flipbook, interpolating between projections, etc.
+- choropleth.js: 
+- dot-density.js: Creation of Dot Density for given data
+- tissot.js: Creation of Tissot's indicatrices
+- data/: folder containing COVID-19 and abortion data
+- css/: folder container all style scripts 
 
 
-- The initial template for this is forked from the jsoma's Take a peek at https://jsoma.github.io/simplified-scrollama-scrollytelling/.

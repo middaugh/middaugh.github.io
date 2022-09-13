@@ -1,8 +1,11 @@
+//////////////////////
+// Projection Flipbook Section
+////////////////////////
 
 // declare all my global variables
 const duration = 3500; // timing
 
-// all data to be visualized
+// all data to be visualized, make global variables
 var abortion = {};
 var covidDeaths = {};
 var covidCases = {};
@@ -51,11 +54,6 @@ function ready(error, countries110m) {
   var middleCanvas = positionBase(middleCanvasId, width, height).node()
   var bottomCanvas = positionBase(bottomCanvasId, width, height).node()
 
-
-  var topContext = topCanvas.getContext('2d')
-  var middleContext = middleCanvas.getContext('2d')
-  var bottomContext = bottomCanvas.getContext('2d')
-
   function transitionSection(canvas, projection, minLat, maxLat, duration) {
 
     const ease = d3.easeQuadIn;
@@ -74,7 +72,7 @@ function ready(error, countries110m) {
       // compute how far through the animation we are (0 to 1)
       const t = Math.min(1, ease(elapsed / (duration - 1300))); // make a little less than duration so time to create viz at end
 
-      
+
       if (t < 1) {
         path = sizeScaleSection(canvas, projection.alpha(t), minLat, maxLat);
         context.beginPath(), context.strokeStyle = "#fff", path(countries), context.stroke();
@@ -84,7 +82,7 @@ function ready(error, countries110m) {
       if (t == 1) {
 
         if (firstTime) {
-          
+
           // CHOROPLETH
           if (vizType == 'choropleth') {
             makeChoropleth(context, path, countries, currentData);
@@ -93,7 +91,7 @@ function ready(error, countries110m) {
           // DOT DENSITY
           if (vizType == 'dotDensity') {
             makeDotDensity(context, projection, minLat, maxLat, countries, currentData)
-            
+
           }
           // ADD TISSOT's INDICATRICES
           makeTissot(context, path);
@@ -105,6 +103,7 @@ function ready(error, countries110m) {
 
   }
 
+  // SetUp the transition functions
   function roundOne() {
     transitionSection(topCanvas, projectionRotations[0].top, 30, 85, duration)
     transitionSection(middleCanvas, projectionRotations[0].middle, -30, 30, duration)
@@ -155,14 +154,14 @@ function ready(error, countries110m) {
     ]
 
     // timing for how long each should go, can be adjusted
-    d3.timeout(roundOne, duration); 
-    d3.timeout(roundTwo, duration, duration + duration * .8 );
+    d3.timeout(roundOne, duration);
+    d3.timeout(roundTwo, duration, duration + duration * .8);
     d3.timeout(roundThree, duration + 50, duration + duration + (duration * .6) * 2);
   }
 
 
   //////////////////////
-  // Scrollama Section, adjusted from tutorial
+  // Scrollama Section, adjusted from Soma's tutorial
   ////////////////////////
 
   var main = document.querySelector("main");
@@ -247,7 +246,7 @@ function ready(error, countries110m) {
     window.addEventListener("resize", scroller.resize);
   }
 
-  // start
+  // start everything off for the scrollama
   init();
 
 
