@@ -1,3 +1,6 @@
+//////////////////////
+// CHOROPLETH
+////////////////////////
 
 function makeChoropleth(context, path, baseMap, data) {
     

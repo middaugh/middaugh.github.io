@@ -1,3 +1,7 @@
+//////////////////////
+// Base Functions for The Projection Flipbook
+////////////////////////
+
 function positionBase(baseCanvasId, width, height) {
     // canvas for dot map
     var baseCanvas = d3.select(`#` + baseCanvasId)

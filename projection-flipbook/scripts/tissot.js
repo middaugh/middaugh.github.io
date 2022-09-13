@@ -1,3 +1,7 @@
+//////////////////////
+// TISSOT'S INDICATRICES 
+////////////////////////
+
 function makeCircles(){
     // Taken directly from Mike Bostock's Observable Notebook https://observablehq.com/@d3/tissots-indicatrix
     const step = 15;

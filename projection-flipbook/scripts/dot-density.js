@@ -1,3 +1,7 @@
+//////////////////////
+// DOT DENSITY
+////////////////////////
+
 function scaleDensityMapping(data) {
     // This function ensures that there will never be too many dots drawn; it scales all inputs to be between 0 and 1000 dots per country
     var scaledData = []
